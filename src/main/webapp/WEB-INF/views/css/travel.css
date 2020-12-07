@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/* #map{
+	width:200px;
+	height:300px;
+	float:left; 
+} */
+#div_root{
+	margin: 0px 500px;
+	width:60%;  
+	background-color:yellow;     
+}   
+#div_top{
+	height:150px;
+	background-color:#87F5F5;
+	background-image:url("../images/dew.JPG");
+	background-position: auto;   
+	text-align:center;
+}
+#div_top2{
+	border-bottom:1px solid black;
+	widthd: 80%;
+	height: auto; 
+	padding: 30px;
+	text-align:left;
+	background-color:#7DEBEB; 
+}
+#div_top3{
+	widthd: 80%;
+	height: auto; 
+	padding: 30px;
+	background-color:#6EDCDC; 
+}
+#div_map{
+	height:700px;
+	margin: 0px;
+	background-color:white;    
+}
+#div_map2{
+	margin-top : 100px;
+	margin-left : 40px;
+	display:block; 
+	width:20%; 
+	height:520px;  
+	float:left;
+	text-align:reft; 
+}
+#div_con{
+	margin-top : 30px; 
+	margin-right : 30px; 
+	width:55%;  
+	height:600px;  
+	float:right;
+	background-color:#1DD1AD; 
+	text-align:center;
+}
+#div_con2{
+	border-bottom:1px solid black;
+	text-align:left;  
+	padding : 20px ;
+}
+li{
+	height:100px; 
+	margin : 5px;
+}
+#title{
+	font-size:10px;
+	text-align:left;
+	overflow:hidden;
+	text-overflow: ellipsis;  
+	padding:5px 10px;
+}
+#div_bottom{
+	width:80%;
+	height:300px;
+	clear:both;
+	margin:auto; 
+	background-color:#64CD3C;  
+	text-align:center; 
+}

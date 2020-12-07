@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TravelMapper">
+
+	<select id="totalCount_course" resultType="int"
+		parameterType="hashmap">
+		select count(rimage)from travel_course
+		<where>
+			<if test="course == 'ha'">
+				regioncd = 'HA' and searchtype='코스'
+			</if>
+			<if test="course == 'gu'">
+				regioncd = 'GU' and searchtype='코스'
+			</if>
+			<if test="course == 'nd'">
+				regioncd = 'ND' and searchtype='코스'
+			</if>
+			<if test="course == 'sj'">
+				regioncd = 'SJ' and searchtype='코스'
+			</if>
+			<if test="course == 'ys'">
+				regioncd = 'YS' and searchtype='코스'
+			</if>
+		</where>
+	</select>
+
+	<select id="main" parameterType="string" resultType="TravelDTO">
+		select *
+		from travel_course order by rImage
+	</select>
+
+	<select id="course" resultType="TravelDTO">
+		select * from travel_course where
+		regioncd = UPPER (#{course})
+	</select>
+	
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<select id="area_main" resultType="AreaDTO">
+		select * from travel_area
+	</select>
+	
+	<select id="totalCount_area" resultType="int" parameterType="hashmap">
+	select count(intro) from travel_area
+	</select> 
+</mapper> 
