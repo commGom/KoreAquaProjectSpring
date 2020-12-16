@@ -9,4 +9,4 @@
 <body>
 	<jsp:include page="travel/area.jsp" flush="true" />
 </body>
-</html>
+</html> 

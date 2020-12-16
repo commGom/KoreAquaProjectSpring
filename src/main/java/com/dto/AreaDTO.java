@@ -1,120 +1,117 @@
 package com.dto;
 
 import org.apache.ibatis.type.Alias;
+
 @Alias("AreaDTO")
 public class AreaDTO {
-
-	
-	private String resultcode;
-	private String resultmsg;
-	private String intro;
-	private String region;
-	private String regionCd;
-	private String searchType;
-	private String searchTypeCd;
-	private String title;
-	private String numofrows;
-	private String pageno;
-	private String totalcount;
-	private String rImage;
+	private String RESULTCODE;
+	private String RESULTMSG;
+	private String INTRO;
+	private String REGION;
+	private String REGIONCD;
+	private String SEARCHTYPE;
+	private String SEARCHTYPECD;
+	private String TITLE;
+	private String NUMOFROWS;
+	private String PAGENO;
+	private String TOTALCOUNT;
+	private String RIMAGE;
 	public AreaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AreaDTO(String resultcode, String resultmsg, String intro, String region, String regionCd, String searchType,
-			String searchTypeCd, String title, String numofrows, String pageno, String totalcount, String rImage) {
+	public AreaDTO(String rESULTCODE, String rESULTMSG, String iNTRO, String rEGION, String rEGIONCD, String sEARCHTYPE,
+			String sEARCHTYPECD, String tITLE, String nUMOFROWS, String pAGENO, String tOTALCOUNT, String rIMAGE) {
 		super();
-		this.resultcode = resultcode;
-		this.resultmsg = resultmsg;
-		this.intro = intro;
-		this.region = region;
-		this.regionCd = regionCd;
-		this.searchType = searchType;
-		this.searchTypeCd = searchTypeCd;
-		this.title = title;
-		this.numofrows = numofrows;
-		this.pageno = pageno;
-		this.totalcount = totalcount;
-		this.rImage = rImage;
+		RESULTCODE = rESULTCODE;
+		RESULTMSG = rESULTMSG;
+		INTRO = iNTRO;
+		REGION = rEGION;
+		REGIONCD = rEGIONCD;
+		SEARCHTYPE = sEARCHTYPE;
+		SEARCHTYPECD = sEARCHTYPECD;
+		TITLE = tITLE;
+		NUMOFROWS = nUMOFROWS;
+		PAGENO = pAGENO;
+		TOTALCOUNT = tOTALCOUNT;
+		RIMAGE = rIMAGE;
 	}
-	public String getResultcode() {
-		return resultcode;
+	public String getRESULTCODE() {
+		return RESULTCODE;
 	}
-	public void setResultcode(String resultcode) {
-		this.resultcode = resultcode;
+	public void setRESULTCODE(String rESULTCODE) {
+		RESULTCODE = rESULTCODE;
 	}
-	public String getResultmsg() {
-		return resultmsg;
+	public String getRESULTMSG() {
+		return RESULTMSG;
 	}
-	public void setResultmsg(String resultmsg) {
-		this.resultmsg = resultmsg;
+	public void setRESULTMSG(String rESULTMSG) {
+		RESULTMSG = rESULTMSG;
 	}
-	public String getIntro() {
-		return intro;
+	public String getINTRO() {
+		return INTRO;
 	}
-	public void setIntro(String intro) {
-		this.intro = intro;
+	public void setINTRO(String iNTRO) {
+		INTRO = iNTRO;
 	}
-	public String getRegion() {
-		return region;
+	public String getREGION() {
+		return REGION;
 	}
-	public void setRegion(String region) {
-		this.region = region;
+	public void setREGION(String rEGION) {
+		REGION = rEGION;
 	}
-	public String getRegionCd() {
-		return regionCd;
+	public String getREGIONCD() {
+		return REGIONCD;
 	}
-	public void setRegionCd(String regionCd) {
-		this.regionCd = regionCd;
+	public void setREGIONCD(String rEGIONCD) {
+		REGIONCD = rEGIONCD;
 	}
-	public String getSearchType() {
-		return searchType;
+	public String getSEARCHTYPE() {
+		return SEARCHTYPE;
 	}
-	public void setSearchType(String searchType) {
-		this.searchType = searchType;
+	public void setSEARCHTYPE(String sEARCHTYPE) {
+		SEARCHTYPE = sEARCHTYPE;
 	}
-	public String getSearchTypeCd() {
-		return searchTypeCd;
+	public String getSEARCHTYPECD() {
+		return SEARCHTYPECD;
 	}
-	public void setSearchTypeCd(String searchTypeCd) {
-		this.searchTypeCd = searchTypeCd;
+	public void setSEARCHTYPECD(String sEARCHTYPECD) {
+		SEARCHTYPECD = sEARCHTYPECD;
 	}
-	public String getTitle() {
-		return title;
+	public String getTITLE() {
+		return TITLE;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTITLE(String tITLE) {
+		TITLE = tITLE;
 	}
-	public String getNumofrows() {
-		return numofrows;
+	public String getNUMOFROWS() {
+		return NUMOFROWS;
 	}
-	public void setNumofrows(String numofrows) {
-		this.numofrows = numofrows;
+	public void setNUMOFROWS(String nUMOFROWS) {
+		NUMOFROWS = nUMOFROWS;
 	}
-	public String getPageno() {
-		return pageno;
+	public String getPAGENO() {
+		return PAGENO;
 	}
-	public void setPageno(String pageno) {
-		this.pageno = pageno;
+	public void setPAGENO(String pAGENO) {
+		PAGENO = pAGENO;
 	}
-	public String getTotalcount() {
-		return totalcount;
+	public String getTOTALCOUNT() {
+		return TOTALCOUNT;
 	}
-	public void setTotalcount(String totalcount) {
-		this.totalcount = totalcount;
+	public void setTOTALCOUNT(String tOTALCOUNT) {
+		TOTALCOUNT = tOTALCOUNT;
 	}
-	public String getrImage() {
-		return rImage;
+	public String getRIMAGE() {
+		return RIMAGE;
 	}
-	public void setrImage(String rImage) {
-		this.rImage = rImage;
+	public void setRIMAGE(String rIMAGE) {
+		RIMAGE = rIMAGE;
 	}
 	@Override
 	public String toString() {
-		return "AreaDTO [resultcode=" + resultcode + ", resultmsg=" + resultmsg + ", intro=" + intro + ", region="
-				+ region + ", regionCd=" + regionCd + ", searchType=" + searchType + ", searchTypeCd=" + searchTypeCd
-				+ ", title=" + title + ", numofrows=" + numofrows + ", pageno=" + pageno + ", totalcount=" + totalcount
-				+ ", rImage=" + rImage + "]";
+		return " <br>TITLE=" + TITLE;
 	}
-		
+	
+		 
 }

@@ -17,9 +17,6 @@
 	<view-controller path="/WeekSearch" view-name="WeekSearch"/>
 	<view-controller path="/MonthSearch" view-name="MonthSearch"/>
 	<view-controller path="/MineralSWMark" view-name="MineralSWMark"/>
-	<view-controller path="/Travel_course" view-name="Travel_course"/>
-	<view-controller path="/Travel_area" view-name="Travel_area"/>
-	<view-controller path="/Dictionary" view-name="diction"/>
 	
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
@@ -39,7 +36,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- <context:component-scan base-package="com.KoreAqua.Project" /> -->
+	 <context:component-scan base-package="com.KoreAqua.Project" />
 	
 	
 	
