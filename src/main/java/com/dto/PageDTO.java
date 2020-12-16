@@ -2,9 +2,11 @@ package com.dto;
 
 import java.util.List;
 
-import org.apache.ibatis.type.Alias; 
+import org.apache.ibatis.type.Alias;
+import org.springframework.beans.factory.annotation.Autowired; 
 @Alias("PageDTO")
 public class PageDTO {
+		
 	private List<DictionDTO> list;
 	private int curPage; //현재 페이지 번호
 	private int perPage=10; //한 페이지당 게시물 수

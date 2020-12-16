@@ -2,38 +2,41 @@ package com.service;
 
 import java.util.HashMap;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.config.MySqlSessionFactory;
 import com.dao.AreaDAO;
+import com.dao.DictionDAO;
 import com.dto.AreaPage;
 
+@Service
 public class AreaService {
 
-	/*
-	 * public List<AreaDTO> AreaMain() { SqlSession session =
-	 * MySqlSessionFactory.getSession(); List<AreaDTO> aDTO = null; try { AreaDAO
-	 * aDAO = new AreaDAO(); aDTO = aDAO.AreaMain(session); }catch(Exception e) {
-	 * e.printStackTrace(); }finally { session.close(); } return aDTO; }
-	 */
+	@Autowired
+	AreaDAO dao; 
 	
 	 public AreaPage area_main(int curPage, String area) {
 		 HashMap<String, String> map = new HashMap<String, String>();
 		 map.put("area", area);
-		 SqlSession session = MySqlSessionFactory.getSession();
-		 AreaPage pDTO = null;
-		 try {
-			 AreaDAO dao = new AreaDAO();
-				pDTO = dao.AreaMain(session, curPage, map);
-		 } catch(Exception e) {
-			 e.printStackTrace();
-		 }finally {
-			 session.close();
-		 }
-		 System.out.println("AreaService 37 line pDTO:"+pDTO); 
+		 AreaPage pDTO = dao.AreaMain(curPage, map);
 		return pDTO;
-		
-		
 	 }
 	 
-	 
+	 public AreaPage AInitial (String TITLE, int curPage, String REGIONCD) {
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("check", "check");
+			map.put("TITLE", TITLE ); 
+			map.put("REGIONCD", REGIONCD);
+		
+			if(TITLE.equals("")) { 
+				System.out.println("asdasdasd");
+				AreaPage list = dao.ARegion(map,curPage,REGIONCD);
+				return list;   
+			} else {
+				System.out.println("bbbbbbbbbbbbbbbbb");
+				AreaPage list = dao.ATitle(map, curPage, REGIONCD);
+				return list;   
+			}
+		 }  	  
 }// end class

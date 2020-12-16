@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 public class AreaPage {
 	private List<AreaDTO> list;
 	private int curPage; //현재 페이지 번호
-	private int perPage=4; //한 페이지당 게시물 수  
+	private int perPage=8; //한 페이지당 게시물 수  
 	private int totalCount; //전체 게시물 수
 	public AreaPage() {
 		super();
@@ -47,9 +47,10 @@ public class AreaPage {
 	}
 	@Override
 	public String toString() {
-		return "AreaDTO_Page [list=" + list + ", curPage=" + curPage + ", perPage=" + perPage + ", totalCount="
-				+ totalCount + "]";
+		return "AreaPage [list=" + list + ", curPage=" + curPage + ", perPage=" + perPage + ", totalCount=" + totalCount
+				+ "]";
 	}
+	
 	
 	
 }

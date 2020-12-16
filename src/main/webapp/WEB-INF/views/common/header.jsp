@@ -40,11 +40,11 @@
              <li class="drop-down"><a href="">물과 여행정보</a>
               <ul>
                 <li><a href="Travel_course">강 따라</a></li>
-                <li><a href="Travel_area">명소 따라</a></li>               
+                <li><a href="Area">명소 따라</a></li>               
               </ul>
             </li>
             
-            <li><a href="Dictionary">물과 백과사전</a></li> 
+            <li><a href="Diction">물과 백과사전</a></li> 
             <li><a href="#team">Q & A</a></li>
           
           </ul>
