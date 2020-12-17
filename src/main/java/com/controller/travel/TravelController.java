@@ -21,8 +21,6 @@ public class TravelController  {
 	@Autowired
 	TravelService service;
 	
-	
-	
 	@RequestMapping(value="/Travel_course", method = RequestMethod.GET)
 	
 	public ModelAndView CourseCon(@RequestParam(required=false, defaultValue="1")String curPage,
@@ -35,7 +33,7 @@ public class TravelController  {
 		int totalCount = pDTO.getTotalCount();
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("course", pDTO);
+		
 		mav.addObject("curPage",curPage);
 		mav.addObject("perPage",perPage);
 		mav.addObject("totalCount",totalCount);

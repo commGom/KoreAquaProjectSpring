@@ -10,7 +10,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Inner Page - Bethany Bootstrap Template</title>
+<title>물과 여행 정보</title>
 <meta content="" name="descriptison">
 <meta content="" name="keywords">
  
@@ -60,7 +60,8 @@ $(document).ready(function(){
 					<h2></h2>
 					<ol>
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li>Inner Page</li>
+						<li>물과 여행 정보</li>
+						<li>명소 따라</li>
 					</ol>
 				</div>
 
@@ -96,16 +97,16 @@ $(document).ready(function(){
 					<li id=title style="display:flex; align-items:center; float:left;  padding: 10px 10px 10px 10px; margin:auto;  width: 50%; height:170px; overflow:hidden; ">
 						
 						<img src="images/area/${xx.RIMAGE }.jpg" align="left" width="180" style="margin-right:20px">
-						<div> <h5 style="argin-top: 15px;">${xx.TITLE}</h5> <p style="padding-top:10px; margin:auto; height:110px; overflow:hidden; text-overflow: ellipsis;">${xx.INTRO}</p></div> </li>  
+						<div> <h5 style="argin-top: 15px;">${xx.TITLE}</h5> <p style="padding-top:11px; margin:auto; height:110px; overflow:hidden; text-overflow: ellipsis;">${xx.INTRO}</p></div> </li>  
 				</ul> 
    
 				
 						</c:if>
 					</c:forEach>
-
-				<c:if test="${status.count % 8 == 0 }"> 
-				<ul>
-				<li class="page" style="text-align: center;  list-style:none; ">
+			</div>
+		</section>
+		<ul>
+				<li class="page" style="text-align: center;  list-style:none; margin-left: 50px;">
 					<c:set var="curPage" value="${curPage }" /> 
 								<c:set var="perPage" value="${perPage }" /> 
 								<c:set var="totalCount" value="${totalCount }" />
@@ -121,11 +122,14 @@ $(document).ready(function(){
 								<fmt:parseNumber var="NextBlock" type="number" value="${nextBlock}" />
 									
 								<!--########## 이전 페이지 링크 출력 ############ -->
+								<c:if test="${ curPage > 2 }">
+									<a href="Area?curPage=${ 1 }">[1 페이지로 ]</a> &nbsp;
+				 		    	</c:if> 
 						     	 <c:if test="${ curPage > 10 }">
-									<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage - 10 }">[이전 10 페이지 ]</a>
+									<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage - 10 }">[이전 10 페이지 ]</a>&nbsp;
 				 		    	</c:if> 
 								<c:if test="${ curPage > 1 }">
-									<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage - 1 }">[이전 페이지 ]</a>
+									<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage - 1 }">[이전 페이지 ]</a>&nbsp;
 				 		    	</c:if> 
 								<!--########## 페이지 출력 ############ --> 
 									<c:forEach var="counter" begin="${curPage}" end="${nextBlock}">
@@ -133,11 +137,11 @@ $(document).ready(function(){
 										<c:if test="${ counter <= totalPage }">
 											<c:choose>
 												<c:when test="${ counter == curPage }">
-													<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage - 10}">[${counter}]</a>
+													<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage }">[${counter}]</a>&nbsp;
 												</c:when>
 
 												<c:when test="${ counter != curPage }">
-													<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${counter}">[${counter}]</a>
+													<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${counter}">[${counter}]</a>&nbsp;
 												</c:when>
 											</c:choose>
 										</c:if>
@@ -145,16 +149,14 @@ $(document).ready(function(){
 									
 								<!--########## 다음 10 페이지 링크 출력 ############ -->
 								<c:if test="${ curPage < totalPage  }">
-										<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage+1  }">[다음 페이지]</a> &nbsp;
-										<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ totalPage  }">[다음 10페이지]</a>
+										<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage+1  }">[다음 페이지]</a>&nbsp;
+										<c:if test="${ totalPage > 10  }">
+										<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage+10 }">[다음 10페이지]</a>&nbsp;
+										</c:if>
+										<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ totalPage  }">[마지막 페이지]</a>
 								</c:if>
 								</li>
 								</ul> <!-- end paging -->
-				</c:if>
-				
-			</div>
-
-		</section>
 	</main>
 	<jsp:include page="../common/footer.jsp" flush="true"></jsp:include>
 
