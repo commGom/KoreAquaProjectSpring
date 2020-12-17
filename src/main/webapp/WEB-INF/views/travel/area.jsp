@@ -4,11 +4,13 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.dto.AreaDTO"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Inner Page - Bethany Bootstrap Template</title>
+<title>물과 여행 정보</title>
 <meta content="" name="descriptison">
 <meta content="" name="keywords">
  
@@ -41,7 +43,7 @@ $(document).ready(function(){
 		location.href="AreaInitialServlet?AInit="+AInit;   
 	});  
 	console.log($("#AInit").val()); 
-});
+}); 
 </script>  
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
@@ -57,7 +59,8 @@ $(document).ready(function(){
 					<h2></h2>
 					<ol>
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li>Inner Page</li>
+						<li>물과 여행 정보</li>
+						<li>명소 따라</li>
 					</ol>
 				</div>
 
@@ -66,7 +69,7 @@ $(document).ready(function(){
 		<!-- End Breadcrumbs -->
 		
 		<form action="AreaInitialServlet"
-					style="width: 600px; height:50px; margin:0px 0px 0px 39%; padding:15px 0;">
+		style="width: 600px; height:50px; margin:0px 0px 0px 39%; padding:15px 0;">
 					<select name="AInit" id="AInit" class="AInit" title="전체" style="height:30px;"> 
 					<option value="All">전체</option> 
 					<option value="HA">한&nbsp;&nbsp;강</option>
@@ -82,82 +85,84 @@ $(document).ready(function(){
 				</form> 
 		
 		<section class="inner-page">  
-			<div class="content"></div>  
-			<%
-					AreaPage pDTO = (AreaPage) request.getAttribute("pdto");
-				List<AreaDTO> list = pDTO.getList();
-				int curPage = pDTO.getCurPage();
-				int perPage = pDTO.getPerPage();
-				int PageBlock = 10;
-				int totalCount = pDTO.getTotalCount();
-				int totalPage = totalCount / perPage; 
-				if (totalCount % perPage != 0)
-					totalPage++;
-				int EndNo = perPage * curPage;
-				int StartNo = EndNo - perPage;
-				int PrevBlock = (int) Math.floor((curPage - 1) / PageBlock) * PageBlock;
-				int NextBlock = PrevBlock + PageBlock + 1;
-				%>
+			<div class="content">  
+			
 			<div id="div_con"
 				style="width: 50%; margin: 0 auto;">
-				<%
-						for (int i = 1; i <= list.size(); i++) {
-						AreaDTO adto = list.get(i - 1);
-						String intro = adto.getINTRO();
-						String region = adto.getREGION();
-						String title = adto.getTITLE();
-						String regioncd = adto.getREGIONCD();
-						String rImage = adto.getRIMAGE(); 
-					%> 
+				
+				<c:forEach var="xx" items="${list }" varStatus="status">
+				<c:if test="${xx.RIMAGE != null}">
 				<ul>
-					<%
-							if (rImage != null) {
-						%>
-					<li id=title
-						style="display:flex; align-items:center; float:left;  padding: 10px 10px 10px 10px; margin:auto;  width: 50%; height:170px; overflow:hidden; ">
+				
+					<li id=title style="display:flex; align-items:center; float:left;  padding: 10px 10px 10px 10px; margin:auto;  width: 50%; height:170px; overflow:hidden; ">
 						
-						<img src="images/area/<%=rImage%>.jpg" align="left" width="180" style="margin-right:20px">
-						<div> <h5 style="argin-top: 15px;"><%=title%></h5> <p style="padding-top:10px; margin:auto; height:110px; overflow:hidden; text-overflow: ellipsis;"> <%=intro%></p></div> </li>  
-				</ul> 
-   
-				<%
-						} //end if (rimage)
-					%>
-				<% 
-						if (i % 8 == 0) {  
-					%>  
-
-				<ul>
-					<li class="page" style="text-align: center;  list-style:none; ">
-						<% 
-								if (PrevBlock > 0) {
-							%> <a href="AreaServlet?curPage=<%=curPage - 1%>">[이전
-							페이지]</a> <%
-								}
-							%> <%
- 	for (int j = 1 + PrevBlock; j < NextBlock && j <= totalPage; j++) {
- 	if (j == curPage) {
- %> [<%=j%>] <%
- 	} else {
- %> [<a href="AreaServlet?curPage=<%=j%>"><%=j%></a>] <%
- 	}
- }
- %> <%
- 	if (totalPage >= NextBlock) { 
- %> <a href="AreaServlet?curPage=<%=NextBlock%>">[다음 페이지]</a> <% 
- 	}
- %>
-					</li>
+						<img src="images/area/${xx.RIMAGE }.jpg" align="left" width="180" style="margin-right:20px">
+						<div> <h5 style="argin-top: 15px;">${xx.TITLE}</h5> <p style="padding-top:11px; margin:auto; height:110px; overflow:hidden; text-overflow: ellipsis;">${xx.INTRO}</p></div> </li>  
 				</ul>
-				<%
-						} //end if
-					%>
-				<%
-						} //end for
-					%>
+				
+								
+						</c:if>
+					</c:forEach>
+			
 			</div>
-
+			
+			
+</div>
 		</section>
+		<ul>
+				<li class="page" style="text-align: center;  list-style:none; margin-left: 50px; ">
+					<c:set var="curPage" value="${curPage }" /> 
+								<c:set var="perPage" value="${perPage }" /> 
+								<c:set var="totalCount" value="${totalCount }" />
+								<c:if test="totalCount % perPage != 0">
+									<c:set var="totalCount" value="${totalCount+1 }"/>
+								</c:if>
+								<c:set var="TotalPage" value="${totalCount/perPage }" />
+								<c:set var="totalPage" value="${TotalPage+(1-(TotalPage%1))%1}" />
+								<fmt:parseNumber var="totalPage" type="number" value="${totalPage}" />
+								<c:set var="PageBlock" value="10" /> 
+								<c:set var="PrevBlock" value="${ ((curPage - 1) / PageBlock) * PageBlock}" />
+								<c:set var="nextBlock" value="${PrevBlock+PageBlock+1 }" />
+								<fmt:parseNumber var="nextBlock" type="number" value="${nextBlock}" />
+									
+								<!--########## 이전 페이지 링크 출력 ############ -->
+								<c:if test="${ curPage > 2 }">
+									<a href="Area?curPage=${ 1 }">[1 페이지로 ]</a> &nbsp;
+				 		    	</c:if> 
+						     	 <c:if test="${ curPage > 10 }">
+									<a href="Area?curPage=${ curPage - 10 }">[이전 10 페이지 ]</a> &nbsp;
+				 		    	</c:if> 
+								<c:if test="${ curPage > 1 }">
+									<a href="Area?curPage=${ curPage - 1 }">[이전 페이지 ]</a> &nbsp;
+				 		    	</c:if> 
+				 		    	
+								<!--########## 페이지 출력 ############ --> 
+									<c:forEach var="counter" begin="${curPage}" end="${nextBlock-1}">
+																											
+										<c:if test="${ counter <= totalPage }">
+										
+											<c:choose>
+												<c:when test="${ counter == curPage }">
+													<a href="Area?curPage=${ curPage }">[${counter}]&nbsp;</a>
+												</c:when>
+
+												<c:when test="${ counter != curPage }">
+													<a href="Area?curPage=${counter}">[${counter}]&nbsp;</a>
+												</c:when>
+											</c:choose>
+										</c:if>
+									</c:forEach> 
+									
+								<!--########## 다음 10 페이지 링크 출력 ############ -->
+								<c:if test="${ curPage < totalPage  }">
+										<a href="Area?curPage=${ curPage+1  }">[다음 페이지]</a>&nbsp;
+										<c:if test="${ totalPage > 10  }">
+										<a href="Area?curPage=${ curPage+10 }">[다음 10 페이지]</a>&nbsp;
+										</c:if>
+										<a href="Area?curPage=${ totalPage  }">[마지막 페이지]</a>
+								</c:if>
+					</li>
+								</ul> <!-- end paging -->
 	</main>
 	<jsp:include page="../common/footer.jsp" flush="true"></jsp:include>
 

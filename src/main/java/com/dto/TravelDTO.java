@@ -149,9 +149,11 @@ public class TravelDTO {
 	}
 
 	@Override
-	public String toString() { 
-		return " searchTypeCd=" + searchTypeCd + "\r";
+	public String toString() {
+		return "TravelDTO [rImage=" + rImage + "]";
 	}
+
+	
 
 	
 	

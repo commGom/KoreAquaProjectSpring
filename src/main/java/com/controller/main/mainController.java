@@ -11,7 +11,7 @@ public class mainController {
 	
 	@RequestMapping("/Travel_course")
 	public String Travel_course() {
-		return "Travel_course";
+		return "Travel";
 	}
 	
 	@RequestMapping("/Travel_area")
@@ -20,7 +20,7 @@ public class mainController {
 	}
 	
 	@RequestMapping("/Dictionary")
-	public String Dictionary() {
-		return "diction";
+	public String Dictionary() { 
+		return "Diction"; 
 	}
 }
