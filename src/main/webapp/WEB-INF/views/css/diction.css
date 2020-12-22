@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.explain{
+	font-size:12px;
+}
+
+a{
+	font-size:18px;
+}
+li:nth-child(2){
+	font-weight:600;
+	color:black; 
+}
+.paging a:nth-child(n+1):nth-child(-n+2){ 
+	font-size:17px;
+	
+}
+.paging a:nth-child(n+13):nth-child(-n+15){ 
+	font-size:17px;
+	
+}
