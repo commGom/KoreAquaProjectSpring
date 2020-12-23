@@ -45,7 +45,7 @@
             </li>
             
             <li><a href="Diction">물과 백과사전</a></li> 
-            <li><a href="#team">Q & A</a></li>
+            <li><a href="${pageContext.request.contextPath}/qna">Q & A</a></li>
           
           </ul>
         </nav><!-- .nav-menu -->
