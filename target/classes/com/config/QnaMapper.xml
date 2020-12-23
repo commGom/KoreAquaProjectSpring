@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QnaMapper">
+
+	<select id="totalCount" resultType="int">
+		select count(*) from Qna
+	</select>
+	
+	<select id="searchTotalCount" parameterType="hashmap" resultType="int">
+		select count(*)
+		from Qna
+		<if test="searchName == 'title'">
+			where title LIKE '%'||#{searchValue}||'%'
+		</if>
+	    <if test="searchName == 'content'">
+	    	where content LIKE '%'||#{searchValue}||'%'
+	    </if>
+	    <if test="searchName == 'author'">
+	    	where author LIKE '%'||#{searchValue}||'%'
+	    </if>
+	</select>
+	
+	<select id="repCount" parameterType="int" resultType="int">
+		select count(*)
+		from Qna
+		where repRoot = #{repRoot}
+	</select>
+	
+	<update id="repCnt" parameterType="HashMap">
+		update Qna
+		set repStep = repStep + 1
+		where repRoot = #{repRoot} and repStep > #{repStep}
+	</update>
+	
+	<update id="readCnt" parameterType="int">
+		update Qna
+		set readCnt = readCnt + 1
+		where num = #{num}
+	</update>
+	
+	<select id="listAll" resultType="QnaDTO">
+		select num, title, author, email, content, fileName, to_char(writeday,'yyyy/MM/dd') writeday,
+		readCnt, repRoot, repStep, repIndent
+		from Qna
+		order by repRoot desc, repStep asc
+	</select>
+	
+	<select id="search" parameterType="hashmap" resultType="QnaDTO">
+		select num, title, author, email, content, fileName, to_char(writeday,'yyyy/MM/dd') writeday,
+		readCnt, repRoot, repStep, repIndent
+		from Qna
+		<if test="searchName == 'title'">
+			where title LIKE '%'||#{searchValue}||'%'
+		</if>
+	    <if test="searchName == 'author'">
+	    	where author LIKE '%'||#{searchValue}||'%'
+	    </if>
+	    <if test="searchName == 'content'">
+	    	where content LIKE '%'||#{searchValue}||'%'
+	    </if>
+		order by repRoot desc, repStep asc
+	</select>
+	
+	<select id="replyUI" parameterType="int" resultType="QnaDTO">
+		select * from Qna
+		where num = #{num}
+	</select>
+	
+	<insert id="reply" parameterType="QnaDTO">
+    	insert into Qna(num, title, author, email, passwd, content, fileName, repRoot, repStep, repIndent)
+    	values(Qna_seq.nextval, #{title}, #{author}, 'admin', 0000, #{content}, #{fileName}, #{repRoot}, #{repStep}, #{repIndent})
+    </insert>
+	
+    <insert id="write" parameterType="QnaDTO">
+    	insert into Qna(num, title, author, email, passwd, content, fileName, repRoot, repStep, repIndent)
+    	values(Qna_seq.nextval, #{title}, #{author}, #{email}, #{passwd}, #{content}, #{fileName}, Qna_seq.currval, 0, 0)
+    </insert>
+    
+	<select id="selectByNum" parameterType="int" resultType="QnaDTO">
+	   select num, title, author, email, content, fileName, to_char(writeday,'yyyy/MM/dd' ) writeday, readCnt, repRoot, repStep, repIndent
+		from Qna
+		where num = #{num}
+	</select>
+	
+	<select id="passwdCheck" parameterType="HashMap" resultType="QnaDTO">
+		select * from Qna
+		where num = #{num} and passwd = #{passwd}
+	</select>
+	
+	<delete id="deleteByNum" parameterType="int" >
+		delete from Qna
+		where num = #{num}
+	</delete>
+	
+	<update id="updateByNum" parameterType="QnaDTO">
+		update Qna
+		<!-- <if test="author == null">
+	    	set title = #{title},
+		    content = #{content}
+	    </if>
+	    <if test="author != null">
+	    	set title = #{title},
+		    content = #{content},
+		    author = #{author} 
+	    </if>-->
+	    <if test="fileName == null">
+	    	set title = #{title},
+	    	content = #{content}
+	    </if>
+	    <if test="fileName != null">
+	    	set title = #{title},
+	    	content = #{content},
+	    	fileName = #{fileName}
+	    </if>
+		where num = #{num}
+	</update>
+</mapper>
+
+

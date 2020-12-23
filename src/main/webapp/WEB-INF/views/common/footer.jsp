@@ -88,33 +88,33 @@ function sendLink(){
               용어의 정확한 의미가 담긴 사전 <br>
               서비스를 제공합니다.<br>
               <br>
-              <strong>Github:</strong> https://github.com/velSeon/KoreAqua<br>
-              <strong>Email:</strong> KoreAqua@gmail.com<br>
+              <strong>Github:</strong> https://github.com/velSeon/<br>&emsp;&emsp;&emsp;&nbsp;&nbsp;KoreAuaProjectSpring<br>
+              <strong>Email:</strong> KoreAqua2020@gmail.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.jsp">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">일별 수질 조회</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">수돗물 수질 조회</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="MineralSWMark.jsjp">약수터 수질 조회</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="beachMapPresent.jsp">약수터 수질 조회</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="TravelServlet">물과 여행 정보</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Q & A</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.request.contextPath}/qna">Q & A</a></li>
             </ul>
           </div>
 
-          <!-- <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://ilovewater.or.kr/" target="_blank">물사랑누리집</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://www.wamis.go.kr/" target="_blank">국가수자원관리종합정보시스템</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.nier.go.kr/" target="_blank">국립환경과학원</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://www.kwwa.or.kr/" target="_blank">한국상하수도협회</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="http://water.nier.go.kr/" target="_blank">물환경정보시스템</a></li>
             </ul>
-          </div> -->
+          </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>

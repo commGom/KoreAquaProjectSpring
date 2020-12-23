@@ -77,14 +77,14 @@
                   <div class="icon-box mt-4 mt-xl-0">
                     <i ><a href="https://www.keco.or.kr/kr/main/index.do"> <img src="images/icon2.png" width="45" height="45"></a></i>
                     <h4>한국환경공단</h4>
-                    <p>환경오염방지, 환경개선 및 자원순환을 촉진하는 사업을 추진함으로써 대한민국 환경부 산하 위탁집행형 준정부기관입니다.</p>
+                    <p>환경오염방지, 환경개선 및 자원순환을 촉진하는 사업을 추진하는 대한민국 환경부 산하 위탁집행형 준정부기관입니다.</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
                   <div class="icon-box mt-4 mt-xl-0">
                      <i ><a href="https://www.kwater.or.kr/main.do?s_mid=1"> <img src="images/icon3.png" width="90" height="45"></a></i>
                     <h4>한국수자원공사</h4>
-                    <p>수자원을 종합적으로 개발, 관리하여 생활용수 등의 공급을 원활하게 하고 수질을 개선함으로써 대한민국의 공기업입니다.</p>
+                    <p>수자원을 종합적으로 개발, 관리하여 생활용수 등의 공급을 원활하게 하고 수질을 개선하는 대한민국의 공기업입니다.</p>
                   </div>
                 </div>
               </div>

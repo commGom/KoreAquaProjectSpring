@@ -13,7 +13,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.dto.JusoDTO" alias="JusoDTO" />
 		<typeAlias type="com.dto.PageDTO" alias="PageDTO" />
 		<typeAlias type="com.dto.TravelDTO" alias="TravelDTO" />
-
+		<typeAlias type="com.dto.AdminDTO" alias="AdminDTO" />
+		<typeAlias type="com.dto.QnaDTO" alias="QnaDTO" />
 
 
 	</typeAliases>
@@ -32,6 +33,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/JusoMapper.xml" />
 		<mapper resource="com/config/DictionMapper.xml" />
 		<mapper resource="com/config/TravelMapper.xml" />
+		<mapper resource="com/config/AdminMapper.xml" />
+		<mapper resource="com/config/QnaMapper.xml" />
 	</mappers>
 </configuration>
 
