@@ -121,7 +121,7 @@ $(".btemail").click(function(){
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>자세한 정보가 궁금하다면?</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.jsp">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">수돗물 수질 조회</a></li>
