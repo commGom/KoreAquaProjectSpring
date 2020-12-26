@@ -60,6 +60,7 @@
 				<value>classpath:com/config/MSWMapper.xml</value>
 				<value>classpath:com/config/AdminMapper.xml</value>				
 				<value>classpath:com/config/QnaMapper.xml</value>				
+				<value>classpath:com/config/SubscribeMapper.xml</value>				
 			</list>		
 		</property>
 		<property name="typeAliases">
@@ -81,6 +82,7 @@
 				<value>com.dto.AdminDTO</value>				
 				<value>com.dto.QnaDTO</value>				
 				<value>com.dto.PageQnaDTO</value>				
+				<value>com.dto.SubscribeDTO</value>				
 			</list>		
 		</property>
 	</bean>	

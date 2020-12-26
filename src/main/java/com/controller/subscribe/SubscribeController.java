@@ -8,8 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dto.SubscribeDTO;
+import com.service.SubscribeService;
+
 @Controller
 public class SubscribeController {
+	
+	@Autowired
+	SubscribeService service;
 
 	@Autowired
 	private sendMail mailSender;
@@ -17,7 +23,10 @@ public class SubscribeController {
 	
 	@RequestMapping(value="/subscribemail")
 	@ResponseBody
-	public String subscribemail(@RequestParam(required = false) String useremail) {
+	public String subscribemail( SubscribeDTO dto ,@RequestParam(required = false) String useremail) {
+		
+		service.emailAdd(dto);
+		
 		String subject = "";		
 		String setfrom = "koreaqua2020@gmail.com";
 		
