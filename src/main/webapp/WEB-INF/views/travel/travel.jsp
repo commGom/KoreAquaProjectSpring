@@ -23,8 +23,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
 	rel="stylesheet">
-
-<!-- Vendor CSS Files -->
+ 
+<!-- Vendor CSS Files --> 
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -38,7 +38,8 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
-
+<!-- Template innerPage CSS File -->
+<link href="css/travel.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" flush="ture"></jsp:include>
@@ -50,25 +51,30 @@
 					<h2></h2>
 					<ol>
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li>물과 여행 정보</li>
-						<li>강 따라</li>
-					</ol>
+						<li><a href="<c:url value='' />">물과 여행 정보</a></li>
+						<li><a href="<c:url value='' />">강 따라</a></li>
+					</ol> 
 				</div>
-
-			</div>
+  
+			</div>   
 		</section>
-		<!-- End Breadcrumbs -->
-		<section class="inner-page" style="width: 90%; text-align: center;">
-			<div class="content" style="width: 50%; float: left;">
+	<!-- End Breadcrumbs -->
+	<!-- ======= MainPage ======= -->	
+	
+		<section class="MainPage"> 
+		<div id="recommended">추천코스</div>
+		<p class="course_explain">   
+					강을 위주로 한 여행코스를 소개합니다.
+					<strong style="color:#0569b4">권역을 선택하시면 추천 여행코스를 보실 수</strong>  있습니다.
+				</p>
+				<!-- content -->
+			<div class="content">
+			<ul class="content_map">
 				
-				<div id="div_top3" style="margin-left: 50%; margin-top:50px;">  
-					강을 위주로 한 여행코스를 소개합니다. <br><br>
-					<span>권역을 선택하시면 추천 여행코스를 보실 수 있습니다.</span>
-				</div>
-				<div id="div_map" style="width: 70%; text-align: center;">  
-					<div id="div_map2" style="margin-left: 90%; margin-top: 5%;"> 
+				<li class="Map">  
+					<div class="map_fig"> 
 						<img src="images/map/비활성화.JPG" id="map" usemap="#map01" style="border:2px solid #eeeeee">
-						<map name="map01" id="map01">   
+						<map name="map01" id="map01">  
 							<area shape="rect" coords="215,110,140,75" alt="한강권역"
 								href="CourseServlet?course=ha&word=ha"></area>
 							<area shape="rect" coords="93,213,167,242" alt="금강권역"
@@ -76,29 +82,35 @@
 							<area shape="rect" coords="200,225,287,253" alt="낙동강권역"
 								href="CourseServlet?course=nd&word=nd" /></area>
 							<area shape="rect" coords="35,335,123,370" alt="영산강권역"
-								href="CourseServlet?course=ys&word=ys" /></area>
+								href="CourseServlet?course=ys&word=ys" /></area> 
 							<area shape="rect" coords="95,305,185,335" alt="섬진강권역"
 								href="CourseServlet?course=sj&word=sj" /></area>
-						</map>
-				</div>
-				</div>
-				</div>
-				<!-- end content -->
-			<div id="div_con" style="width: 40%; float: right; margin-right: 10%; text-align: left;"> 
-				<div id="div_con2" style="margin-left:50px; font-size:36px; color:#aaaaaa; ">추천코스</div>
-				<c:forEach var="xx" items="${list }" varStatus="status">
-				<c:if test="${xx.rImage != null}">
-				<ul style="padding-top:15px; padding-bottom:15px; list-style: none; overflow:hidden;">  
-				 	 
-					<li id=title style="margin-bottom:10px; overflow:hidden"><img src="images/ha/${xx.rImage }.JPG" border="0"
-						align="left" width="200" height="100" style="margin-right:10px; margin-bottom:10px;"> <h5 style="color:#0569b4; overflow:hidden;">${xx.title}</h5><br>${xx.course}</li> 
+						</map>  
+					</div>  
+				</li>   
+			</ul> 
+				</div> 
+				<!-- end content --> 
+				<!-- course -->
+			<div id="main_course"> 
+				<h5 class="course_subtit">추천코스</h5>
+			<c:forEach var="xx" items="${list }" varStatus="status">
+			<c:if test="${xx.rImage != null}">
+				<ul class="travel_thum">   
+					<li>
+					<img src="images/ha/${xx.rImage }.JPG"> 
+						<strong>${xx.title}</strong>
+						<p>${xx.course}</p> 
+					</li>  
 				</ul>    
-				</c:if>
-					</c:forEach>											
+				</c:if> 
+					</c:forEach>							 				
 			</div>
+				<!-- end course --> 
 		</section>
-		<ul>
-				<li class="page" style="text-align: center;  list-style:none; margin-left: 50px; ">
+		<!-- End MainPage -->
+		<ul> 
+				<li class="page">
 					<c:set var="curPage" value="${curPage }" /> 
 								<c:set var="perPage" value="${perPage }" /> 
 								<c:set var="totalCount" value="${totalCount }" />
@@ -114,7 +126,7 @@
 								<fmt:parseNumber var="nextBlock" type="number" value="${nextBlock}" />
 									
 								<!--########## 이전 페이지 링크 출력 ############ -->
-								<c:if test="${ curPage > 2 }">
+								<c:if test="${ curPage > 2 }"> 
 									<a href="Travel_course?curPage=${ 1 }">[1 페이지로 ]</a>&nbsp;
 									</c:if> 
 						     	 <c:if test="${ curPage > 10 }">
@@ -123,27 +135,36 @@
 								<c:if test="${ curPage > 1 }">
 									<a href="Travel_course?curPage=${ curPage - 1 }">[이전 페이지 ]</a>&nbsp;
 				 		    	</c:if> 
+				 		    	
 								<!--########## 페이지 출력 ############ --> 
 									<c:forEach var="counter" begin="${curPage}" end="${nextBlock-1}">
-																											
+									
+									<c:set var="counter" value="${counter-4 }"/>
+										<c:if test="${5-curPage>0 }">
+											<c:set var="counter" value="${5-curPage+counter }"/>
+										</c:if>
+										<c:if test="${totalPage - curPage < 5}">
+											<c:set var="counter" value="${counter - 4 + totalPage - curPage }" />
+										</c:if>
+																					 						
 										<c:if test="${ counter <= totalPage }">
 											<c:choose>
 												<c:when test="${ counter == curPage }">
-													<a href="Travel_course?curPage=${ curPage }">[${counter}]</a>&nbsp;
+													<a class="curPage" href="Travel_course?curPage=${ curPage }">[${counter}]</a>&nbsp;
 												</c:when>
 
 												<c:when test="${ counter != curPage }">
 													<a href="Travel_course?curPage=${counter}">[${counter}]</a>&nbsp;
 												</c:when>
 											</c:choose>
-										</c:if>
+										</c:if> 
 									</c:forEach> 
 									
 								<!--########## 다음 10 페이지 링크 출력 ############ -->
 								<c:if test="${ curPage < totalPage  }">
 										<a href="Travel_course?curPage=${ curPage+1  }">[다음 페이지]</a>&nbsp;
 										<c:if test="${ totalPage > 10  }">
-										<a href="Travel_course?curPage=${ totalPage+10 }">[다음 10 페이지]</a>&nbsp;
+										<a href="Travel_course?curPage=${ curPage+10 }">[다음 10 페이지]</a>&nbsp;
 										</c:if> 
 										<a href="Travel_course?curPage=${ totalPage  }">[마지막 페이지]</a>
 								</c:if>

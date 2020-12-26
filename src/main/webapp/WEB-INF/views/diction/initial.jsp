@@ -40,10 +40,13 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+<!-- Template Body CSS File -->
+<link href="css/diction.css" rel="stylesheet">
+
 </head>
 
 <body>
-
+ 
 	<jsp:include page="../common/header.jsp" flush="ture"></jsp:include>
 	
 	
@@ -56,7 +59,7 @@
 				<h2></h2>
 				<ol>
 					<li><a href="<c:url value='/' />">Home</a></li>
-					<li>Inner Page</li>
+					<li><a href="<c:url value='' />">Inner Page</a></li>
 				</ol>
 			</div>
 
@@ -66,7 +69,7 @@
 	<section class="inner-page">
 		<div class="content">
 			<div class="container" style="text-align: center; font-size: 22px;">
-				[검색할 단어를 입력하세요 ]</div>
+				[ 검색할 단어를 입력하세요 ]</div>
 			<form action="DInitial"
 				style="width: 400px; height: 30px; margin: auto; padding-left: 50px;">
 				<input type="text" name="searchValue" id="searchValue"
@@ -125,6 +128,9 @@
 								
 							</c:forEach>
 						
+								</td>
+						
+					</table><!-- 93td --> 
 					<tr class="paging" style="text-align: center; font-size: 22px; padding-bottom: 30px;">
 
 							<td>
@@ -139,8 +145,14 @@
 								<fmt:parseNumber var="NextBlock" type="number" value="${nextBlock-1}" />							
 									
 								<!--########## 이전 페이지 링크 출력 ############ -->
+								<c:if test="${ curPage > 2 }">
+									<a href="Order?initial=${initial}&curPage=${ 1 }">[1 페이지로]</a>
+								</c:if>
+								<c:if test="${ curPage > 1 }">
+									<a href="Order?initial=${initial}&curPage=${ curPage - 1 }">[이전 페이지]</a>
+								</c:if>
 						     	 <c:if test="${ curPage > 10 }">
-									<a href="DInitial?searchValue=${searchValue}&curPage=${ curPage - 10}">[이전 페이지 ]</a>
+									<a href="DInitial?searchValue=${searchValue}&curPage=${ curPage - 10}">[이전 10 페이지]</a>
 				 		    	</c:if> 
 									
 								<!--########## 페이지 카운터 출력 ############ -->
@@ -162,14 +174,14 @@
 									
 								<!--########## 다음 페이지 링크 출력 ############ -->
 								 <c:if test="${ curPage < totalPage  }">
-										<a href="DInitial?searchValue=${searchValue}&curPage=${ curPage + 10}">[다음 페이지]</a>
+										<a href="DInitial?searchValue=${searchValue}&curPage=${ curPage + 1}">[다음 페이지]</a>
+										<c:if test="${ totalPage > 10  }">
+										<a href="DInitial?searchValue=${searchValue}&curPage=${ curPage + 10}">[다음 10 페이지]</a>
+										</c:if>
+										<a href="DInitial?searchValue=${searchValue}&curPage=${ totalPage }">[마지막 페이지]</a>
 								</c:if>
 							</td>
 						</tr> <!-- end paging -->
-						${totalPage }
-								</td>
-						
-					</table><!-- 93td --> 
 				</tr><!-- 92 tr -->
 			</table><!-- 73 table -->
 		</div>

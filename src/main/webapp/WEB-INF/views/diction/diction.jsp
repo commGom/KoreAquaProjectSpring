@@ -40,11 +40,14 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+<!-- Template Body CSS File -->
+<link href="css/diction.css" rel="stylesheet">
 </head>
 
 <body>
 
 	<jsp:include page="../common/header.jsp" flush="ture"></jsp:include>
+	
 	<main id="main"> 
 	<!-- ======= Breadcrumbs ======= -->
 	<section class="breadcrumbs" id="Breadcrumbs">
@@ -54,7 +57,7 @@
 				<h2></h2>
 				<ol>
 					<li><a href="<c:url value='/' />">Home</a></li>
-					<li>Inner Page</li>
+					<li><a href="<c:url value='' />">Inner Page</a></li>
 				</ol>
 			</div>
 
@@ -64,7 +67,7 @@
 	<section class="inner-page">
 		<div class="content">
 			<div class="container" style="text-align: center; font-size: 22px;">
-				[검색할 단어를 입력하세요 ]</div>
+				[ 검색할 단어를 입력하세요 ]</div>
 			<form action="DInitial"
 				style="width: 400px; height: 30px; margin: auto; padding-left: 50px;">
 				<input type="text" name="searchValue" id="searchValue"
@@ -103,7 +106,7 @@
 
 										<tr>
 											<td height="10">
-										</tr>
+										</tr> 
 
 										<tr>
 											<td class="explain" align="left">${xx.explain}</td>
@@ -114,8 +117,10 @@
 									</table>
 
 								</c:forEach>
-						<tr class="paging" style="text-align: center; font-size: 22px; padding-bottom: 30px;">
-
+						
+					</table>
+				</tr>
+				<tr class="paging" style="text-align: center; font-size: 22px; padding-bottom: 30px;">
 							<td>
 								<c:set var="curPage" value="${curPage }" /> 
 								<c:set var="perPage" value="${perPage }" /> 
@@ -130,8 +135,14 @@
 								<fmt:parseNumber var="NextBlock" type="number" value="${nextBlock}" />
 									
 								<!--########## 이전 페이지 링크 출력 ############ -->
+								<c:if test="${ curPage > 2 }">
+									<a href="Diction?curPage=${ 1 }">[1 페이지로]</a>
+								</c:if>
+								<c:if test="${ curPage > 1 }">
+									<a href="Diction?curPage=${ curPage - 1 }">[이전 페이지]</a>
+								</c:if>
 						     	 <c:if test="${ curPage > 10 }">
-									<a href="Diction?curPage=${ curPage - 10 }">[이전 페이지 ]</a>
+									<a href="Diction?curPage=${ curPage - 10 }">[이전 페이지]</a>
 				 		    	</c:if> 
 									
 								<!--########## 페이지 출력 ############ --> 
@@ -152,12 +163,14 @@
 									
 								<!--########## 다음 페이지 링크 출력 ############ -->
 								 <c:if test="${ curPage < totalPage  }">
-										<a href="Diction?curPage=${ curPage + 10 }">[다음 페이지]</a>
+										<a href="Diction?curPage=${ curPage + 1 }">[다음 페이지]</a>
+										<c:if test="${ totalPage > 10  }">
+										<a href="Diction?curPage=${ curPage + 10 }">[다음 10 페이지]</a>
+										</c:if>
+										<a href="Diction?curPage=${ totalPage }">[다음 페이지]</a>
 								</c:if>
 							</td>
 						</tr> <!-- end paging -->
-					</table>
-				</tr>
 			</table>
 		</div>
 
