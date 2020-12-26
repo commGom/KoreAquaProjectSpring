@@ -1,39 +1,110 @@
 /*MainPage*/
+/*content*/
 .MainPage{
-	max-width:60%;
+	max-width:65%;
 	text-align:center;
 	margin: 0 auto;
-	height:800px;
+	height:850px;
 }
-.MainPage .content{
+#recommended{
+	font-size:36px;
+	color:#333;
+	border-bottom: 1px solid #eaeaea;
+	text-align:left; 
+	margin-left: 5%;
+	 
+}
+.course_explain{
+	margin-left: 5%;
+    margin-top: 1%;
+    text-align:left; 
+}
+.MainPage .content{ 
 	height:100%;
 	align-items:center;
-	width: 50%; 
-	float: left; 
+	width: 40%;  
+	float: left;   
 	
 }
-.MainPage .content_map ul{
-	display: inline-block;
-	vertical-align:middle;
-	list-style:none;
+.MainPage .content ul{
+	list-style:none;  
+	margin-top:15%; 
 	
 }
-.MainPage .course_explain {
-	margin-top:10% 
+.content li.course_explain {
+	margin: 10% 0% 0% 20%; 
 }  
 .MainPage .course_explain span{
 	width:100%;
 	height:20%;
 	align-items:center;
-	margin: 0 auto; 
+	margin: 0 auto;  
 	text-align:center;
 	justify-content:space-around;
-}  
+}   
 .Map{ 
 	width:100%;  
 	align-items:center; 
+	margin-left: 10%;
 }
-.Map .map_fig{
-	margin-top: 5%;
-	
+.Map .map_fig{ 
+	margin-top: 30%; 
 }      
+/*course*/
+#main_course{
+	width: 45%;
+	float: right;
+	text-align: left;
+	margin-right:10%; 
+} 
+.course_subtit{
+	margin-top:5%;
+	margin-bottom: 10px;
+    font-size: 17px; 
+    font-weight: 600;
+    color: #0569b4;
+}
+.travel_thum{ 
+	margin: 0 0 20px 0;
+	list-style: none;
+    border: 1px solid #666;
+    border-right-width: 0;
+    border-left-width: 0;
+    margin:0;
+    padding:0;
+} 
+.travel_thum li{ 
+	display: inline-block;
+	min-height: auto;
+	border-top: 1px solid #d5d5d5;
+	padding: 25px 0;
+	border-top-width:0; 
+}
+.travel_thum li img{
+	border: 1px solid #d4d4d4;
+	width: 170px;
+    height: 93px;
+    position: absolute;
+}
+.travel_thum li strong{
+	line-height: 20px;
+    font-size: 15px;
+    margin-top: 5px;
+    color:#0569b4;
+    padding-left: 180px;
+}
+
+.travel_thum li p{
+	padding-left: 180px;
+	overflow:hidden;
+	height: 52px;
+}
+.page{ 
+	text-align: center;
+	list-style:none;
+	margin-left: 50px;
+}
+/*Paging*/
+ .curPage{
+ color:orange;
+ }

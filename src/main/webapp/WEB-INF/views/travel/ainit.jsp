@@ -48,6 +48,8 @@ $(document).ready(function(){
 </script>  
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+
+<link href="css/area.css" rel="stylesheet"> 
 </head>
 <body>
 	<jsp:include page="../common/header.jsp" flush="ture"></jsp:include>
@@ -132,12 +134,19 @@ $(document).ready(function(){
 									<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage - 1 }">[이전 페이지 ]</a>&nbsp;
 				 		    	</c:if> 
 								<!--########## 페이지 출력 ############ --> 
-									<c:forEach var="counter" begin="${curPage}" end="${nextBlock}">
-																											
+									<c:forEach var="counter" begin="${curPage}" end="${nextBlock-1}">
+											
+											<c:set var="counter" value="${counter-4 }"/>
+										<c:if test="${5-curPage>0 }">
+											<c:set var="counter" value="${5-curPage+counter }"/>
+										</c:if>
+										<c:if test="${totalPage - curPage < 5}">
+											<c:set var="counter" value="${counter - 5 + totalPage - curPage }" />
+										</c:if>																
 										<c:if test="${ counter <= totalPage }">
 											<c:choose>
 												<c:when test="${ counter == curPage }">
-													<a href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage }">[${counter}]</a>&nbsp;
+													<a class="curPage" href="AreaInitialServlet?searchValue=${TITLE}&AInit=${REGIONCD}&curPage=${ curPage }">[${counter}]</a>&nbsp;
 												</c:when>
 
 												<c:when test="${ counter != curPage }">

@@ -38,6 +38,8 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+<!-- Template innerPage CSS File -->
+<link href="css/travel.css" rel="stylesheet">
 
 </head>
 <body>
@@ -58,48 +60,55 @@
 			</div>
 		</section>
 		<!-- End Breadcrumbs -->
-		<section class="inner-page" style="width: 90%; text-align: center;"> 
-			<div class="content" style="width: 50%; float:left;"> 
-			
-				<div id="div_top3" style="margin-left: 50%; margin-top:50px;">  
-					강을 위주로 한 여행코스를 소개합니다. <br><br>
-					<span>권역을 선택하시면 추천 여행코스를 보실 수 있습니다.</span>
-				</div>
-				<div id="div_map" style="width: 70%; text-align: center;">  
-					<div id="div_map2" style="margin-left: 90%; margin-top: 5%;"> 
-							<img src="images/map/비활성화.JPG" id="map" usemap="#map01" style="border:2px solid #eeeeee">
-							<map name="map01" id="map01">
-								<area shape="rect" coords="215,110,140,75" alt="한강권역"
-									href="CourseServlet?course=ha&word=ha"></area>
-								<area shape="rect" coords="93,213,167,242" alt="금강권역"
-									href="CourseServlet?course=gu&word=gu" /></area>
-								<area shape="rect" coords="200,225,287,253" alt="낙동강권역"
-									href="CourseServlet?course=nd&word=nd" /></area>
-								<area shape="rect" coords="35,335,123,370" alt="영산강권역"
-									href="CourseServlet?course=ys&word=ys" /></area>
-								<area shape="rect" coords="95,305,185,335" alt="섬진강권역"
-									href="CourseServlet?course=sj&word=sj" /></area>
-							</map>
- 
-						</div> 
-						</div>
-						</div>
+		<!-- ======= MainPage ======= -->	
+		<section class="MainPage"> 
+		<div id="recommended">추천코스</div>
+			<p class="course_explain">   
+					강을 위주로 한 여행코스를 소개합니다.
+					<strong style="color:#0569b4">권역을 선택하시면 추천 여행코스를 보실 수</strong>  있습니다.
+				</p>
+				<!-- content -->
+			<div class="content">
+			<ul class="content_map">
+				
+				<li class="Map">  
+					<div class="map_fig"> 
+						<img src="images/map/비활성화.JPG" id="map" usemap="#map01" style="border:2px solid #eeeeee">
+						<map name="map01" id="map01">  
+							<area shape="rect" coords="215,110,140,75" alt="한강권역"
+								href="CourseServlet?course=ha&word=ha"></area>
+							<area shape="rect" coords="93,213,167,242" alt="금강권역"
+								href="CourseServlet?course=gu&word=gu" /></area>
+							<area shape="rect" coords="200,225,287,253" alt="낙동강권역"
+								href="CourseServlet?course=nd&word=nd" /></area>
+							<area shape="rect" coords="35,335,123,370" alt="영산강권역"
+								href="CourseServlet?course=ys&word=ys" /></area> 
+							<area shape="rect" coords="95,305,185,335" alt="섬진강권역"
+								href="CourseServlet?course=sj&word=sj" /></area>
+						</map>  
+					</div>  
+				</li>   
+			</ul> 
+				</div> 
 						<!-- end content -->
-			<div id="div_con" style="width: 40%; float: right; margin-right:10%; text-align: left;">
-				<div id="div_con2" style="margin-left:50px; font-size:36px; color:#aaaaaa;">추천코스</div>
+						<!-- course -->
+						<div id="main_course"> 
+				<h5 class="course_subtit">추천코스</h5>				
 					<c:forEach var="xx" items="${list }" varStatus="status">
 						<c:if test="${xx.rImage != null}">
-							<ul style="padding-top:15px; padding-bottom:15px; list-style: none; overflow:hidden;"> 
+							<ul class="travel_thum"> 
 								
-								<li id=title style="margin-bottom:10px; overflow:hidden"><img src="images/ha/${xx.rImage }.JPG"
-									border="0" align="left" width="200" height="100" style="margin-right:10px; margin-bottom:10px;"> <h5 style="color:#0569b4; overflow:hidden;">${xx.title}</h5><br>${xx.course}</li> 
+								<li><img src="images/ha/${xx.rImage }.JPG"> 
+								<strong>${xx.title}</strong>
+						<p>${xx.course}</p> 
+						</li>
 							</ul> 
 							</c:if>
 								</c:forEach>
 					</div> 
 		</section>
 		<ul>
-				 <li class="page" style="text-align: center;  list-style:none; margin-left: 50px; ">
+						 <li class="page">
 								<c:set var="curPage" value="${curPage }" /> 
 								<c:set var="perPage" value="${perPage }" /> 
 								<c:set var="totalCount" value="${totalCount }" />
@@ -125,17 +134,29 @@
 									<a href="CourseServlet?course=${course }&curPage=${ curPage - 1 }">[이전 페이지 ]</a>&nbsp;
 				 		    	</c:if> 
 								<!--########## 페이지 출력 ############ --> 
-									<c:forEach var="counter" begin="${curPage}" end="${nextBlock}">
-																											
-										<c:if test="${ counter <= totalPage }">
+									<c:forEach var="counter" begin="${curPage}" end="${nextBlock-1}">
+									
+										${counter }
+										<c:set var="counter" value="${counter-4 }"/>
+										<c:if test="${5-curPage>0 }">
+											<c:set var="counter" value="${5-curPage+counter }"/>
+										</c:if>
+										<c:if test="${totalPage < 5 }"> 
+											<c:set var="counter" value="${counter - curPage + 4}"/>
+										</c:if>	
+										<c:if test="${totalPage - curPage < 5}">
+											<c:set var="counter" value="${counter - 4 + totalPage - curPage }" />
+										</c:if>										
+													 
+										<c:if test="${ counter <= totalPage }"> 
 											<c:choose>
 												<c:when test="${ counter == curPage }">
-													<a href="CourseServlet?course=${course }&curPage=${ curPage }">[${counter}]</a>&nbsp;
+													<a class="curPage" href="CourseServlet?course=${course }&curPage=${ curPage }">[${counter}]</a>&nbsp;
 												</c:when>
 
 												<c:when test="${ counter != curPage }">
 													<a href="CourseServlet?course=${course }&curPage=${counter}">[${counter}]</a>&nbsp;
-												</c:when>
+												</c:when> 
 											</c:choose>
 										</c:if>
 									</c:forEach> 
