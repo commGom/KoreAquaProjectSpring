@@ -7,7 +7,33 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
-<!-- 1.jdbc.properties -->
+	<!-- file upload 위한 MultipartResolver 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" /> <!-- 인코딩-->
+		<property name="maxUploadSize" value="100000000" /> <!--  최대 사이즈-->
+	</bean>
+	<!-- file upload 디렉토리 설정 -->
+	<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="C:\upload"></constructor-arg>
+	</bean>
+	
+	<!-- mail 발송용 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="koreaqua2020@gmail.com" />
+		<property name="password" value="2020KoreAqua" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 1.jdbc.properties -->
 	 <context:property-placeholder location="classpath:com/config/jdbc.properties"/>
 	<!-- 2.DBCP2 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -31,7 +57,10 @@
 				<value>classpath:com/config/DictionMapper.xml</value>
 				<value>classpath:com/config/JusoMapper.xml</value>
 				<value>classpath:com/config/TravelMapper.xml</value>				
-				<value>classpath:com/config/MSWMapper.xml</value>				
+				<value>classpath:com/config/MSWMapper.xml</value>
+				<value>classpath:com/config/AdminMapper.xml</value>				
+				<value>classpath:com/config/QnaMapper.xml</value>				
+				<value>classpath:com/config/SubscribeMapper.xml</value>				
 			</list>		
 		</property>
 		<property name="typeAliases">
@@ -49,7 +78,11 @@
 				<value>com.dto.WeekDTO</value>
 				<value>com.dto.BeachDTO</value> <!-- alias 주소는 각 클래스에서 alias 어노테이션으로 설정 -->
 				<value>com.dto.MineralSpringWaterDTO</value>
-				<value>com.dto.MSWInfoDTO</value>				
+				<value>com.dto.MSWInfoDTO</value>
+				<value>com.dto.AdminDTO</value>				
+				<value>com.dto.QnaDTO</value>				
+				<value>com.dto.PageQnaDTO</value>				
+				<value>com.dto.SubscribeDTO</value>				
 			</list>		
 		</property>
 	</bean>	
