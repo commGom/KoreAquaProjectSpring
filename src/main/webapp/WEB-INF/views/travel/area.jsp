@@ -42,17 +42,18 @@ $(document).ready(function(){
 		var AInit = $("#AInit option:selected").val();   
 		location.href="AreaInitialServlet?AInit="+AInit;   
 	});  
-	console.log($("#AInit").val()); 
+	console.log($("#AInit").val());  
 }); 
 </script>  
-<!-- Template Main CSS File -->
+<!-- Template Main CSS File --> 
 <link href="assets/css/style.css" rel="stylesheet">
+<link href="css/area.css" rel="stylesheet"> 
 </head>
 <body>
-	<jsp:include page="../common/header.jsp" flush="ture"></jsp:include>
+	<jsp:include page="../common/header.jsp" flush="ture"></jsp:include> 
 
 
-	<main class="main">
+	<main class="main"> 
 		<section class="breadcrumbs">
 			<div class="container">
 				<div class="d-flex justify-content-between align-items-center" style="padding-bottom:20px;">
@@ -63,58 +64,56 @@ $(document).ready(function(){
 						<li>명소 따라</li>
 					</ol>
 				</div>
-
-			</div>
-		</section>
+ 
+			</div> 
+		</section> 
 		<!-- End Breadcrumbs -->
-		
-		<form action="AreaInitialServlet"
-		style="width: 600px; height:50px; margin:0px 0px 0px 39%; padding:15px 0;">
-					<select name="AInit" id="AInit" class="AInit" title="전체" style="height:30px;"> 
+		 
+		<!-- inner-page -->
+	<section class="inner_page">  
+		<div class=sub_top> 
+		<h1>지역 명소</h1>
+		</div>
+		<p class=sub_top2>하천 주변의 주요 관광지에 대한 정보를 제공합니다.</p> 
+		<form action="AreaInitialServlet" class="board_sch">
+		강 선택&nbsp;&nbsp;<select name="AInit" id="AInit" class="AInit" title="전체">   
 					<option value="All">전체</option> 
-					<option value="HA">한&nbsp;&nbsp;강</option>
+					<option value="HA">한&nbsp;&nbsp;강</option> 
 					<option value="GU">금&nbsp;&nbsp;강</option>
 					<option value="ND">낙동강</option>  
-					<option value="YS">영산강</option> 
-					<option value="SJ">섬진강</option>  
-					 
-				</select>
-					<input type="text" name="searchValue" id="searchValue"
-						class="searchValue" style="width:70%;"> <input
-						type="submit" value="검색" class="submit" style="height: 30px;">
-				</form> 
-		
-		<section class="inner-page">  
-			<div class="content">  
-			
-			<div id="div_con"
-				style="width: 50%; margin: 0 auto;">
+					<option value="YS">영산강</option>  
+					<option value="SJ">섬진강</option>   
+					</select>&nbsp;
+				<input type="text" name="searchValue" id="searchValue" class="searchValue"> 
+				<input type="submit" value="검색" class="submit">
+		</form>   
+			<div class="content">    
+				<div id="div_con">
 				
 				<c:forEach var="xx" items="${list }" varStatus="status">
 				<c:if test="${xx.RIMAGE != null}">
 				<ul>
-				
-					<li id=title style="display:flex; align-items:center; float:left;  padding: 10px 10px 10px 10px; margin:auto;  width: 50%; height:170px; overflow:hidden; ">
+					<li class=title>
+						<img src="images/area/${xx.RIMAGE }.jpg" align="left" width="180"> 
+						 <h5>${xx.TITLE}</h5>  
+						<p>${xx.INTRO}</p>
 						
-						<img src="images/area/${xx.RIMAGE }.jpg" align="left" width="180" style="margin-right:20px">
-						<div> <h5 style="argin-top: 15px;">${xx.TITLE}</h5> <p style="padding-top:11px; margin:auto; height:110px; overflow:hidden; text-overflow: ellipsis;">${xx.INTRO}</p></div> </li>  
+					</li>  
 				</ul>
-				
-								
-						</c:if>
+						</c:if> 
 					</c:forEach>
-			
-			</div>
-			
-			
-</div>
-		</section>
+			 
+			</div> 
+			 
+			 
+</div> 
+		</section> 
 		<ul>
 				<li class="page" style="text-align: center;  list-style:none; margin-left: 50px; ">
-					<c:set var="curPage" value="${curPage }" /> 
-								<c:set var="perPage" value="${perPage }" /> 
-								<c:set var="totalCount" value="${totalCount }" />
-								<c:if test="totalCount % perPage != 0">
+					<c:set var="curPage" value="${curPage }" />  
+								<c:set var="perPage" value="${perPage }" /> 8개 보여주는걸로 설정
+								<c:set var="totalCount" value="${totalCount }" /> 801개 
+								<c:if test="totalCount % perPage != 0"> 
 									<c:set var="totalCount" value="${totalCount+1 }"/>
 								</c:if>
 								<c:set var="TotalPage" value="${totalCount/perPage }" />
@@ -126,7 +125,7 @@ $(document).ready(function(){
 								<fmt:parseNumber var="nextBlock" type="number" value="${nextBlock}" />
 									
 								<!--########## 이전 페이지 링크 출력 ############ -->
-								<c:if test="${ curPage > 2 }">
+								<c:if test="${ curPage > 2 }"> 
 									<a href="Area?curPage=${ 1 }">[1 페이지로 ]</a> &nbsp;
 				 		    	</c:if> 
 						     	 <c:if test="${ curPage > 10 }">
@@ -137,15 +136,21 @@ $(document).ready(function(){
 				 		    	</c:if> 
 				 		    	
 								<!--########## 페이지 출력 ############ --> 
+								
 									<c:forEach var="counter" begin="${curPage}" end="${nextBlock-1}">
-																											
+									
+										<c:set var="counter" value="${counter-4 }"/>
+										<c:if test="${5-curPage>0 }">
+											<c:set var="counter" value="${5-curPage+counter }"/>
+										</c:if>
+										<c:if test="${totalPage - curPage < 5}">
+											<c:set var="counter" value="${counter - 5 + totalPage - curPage }" />
+										</c:if>
 										<c:if test="${ counter <= totalPage }">
-										
-											<c:choose>
-												<c:when test="${ counter == curPage }">
-													<a href="Area?curPage=${ curPage }">[${counter}]&nbsp;</a>
-												</c:when>
-
+										<c:choose>							
+											<c:when test="${ counter == curPage }">
+												<a class="curPage" href="Area?curPage=${ curPage }">[${counter}]&nbsp;</a>
+											</c:when>
 												<c:when test="${ counter != curPage }">
 													<a href="Area?curPage=${counter}">[${counter}]&nbsp;</a>
 												</c:when>
@@ -155,6 +160,7 @@ $(document).ready(function(){
 									
 								<!--########## 다음 10 페이지 링크 출력 ############ -->
 								<c:if test="${ curPage < totalPage  }">
+									
 										<a href="Area?curPage=${ curPage+1  }">[다음 페이지]</a>&nbsp;
 										<c:if test="${ totalPage > 10  }">
 										<a href="Area?curPage=${ curPage+10 }">[다음 10 페이지]</a>&nbsp;

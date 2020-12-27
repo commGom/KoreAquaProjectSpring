@@ -1,7 +1,12 @@
+<%@page import="com.dto.QnaDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.dto.PageQnaDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +15,77 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>KoreAqua</title>
+  <style type="text/css">
+  
+  #qnatest3{
+   position: relative;
+  float: left;
+   padding-right: 30px;
+    padding-left: 15px;
+  }
+  
+  #qnatest2{
+  position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+   
+    }
+    
+    .qnatest{
+    padding-right: 15px;
+    padding-left: 15px;
+     
+    float: right;
+    
+   
+    -ms-flex-align: stretch!important;
+    align-items: stretch!important;
+	box-sizing: border-box;
+    }
+    ul li {list-style:none;
+     }
+    
+    .table_t {
+				text-align: center;
+				margin:0;
+				padding:0;
+                width: 100%;
+                display: table;
+                border-collapse: collapse;
+                table-layout:fixed;
+                border: none;
+                width:"500";
+     heigh:"315";
+                
+            }
+            .table_t .board {
+                display: table-row;
+            }
+            .table_t #boardD  {
+                display: table-cell;
+                text-align:center;
+                padding: 5px 0;
+                 
+                /*아래는 메뉴 영역을 구분하기 위한 옵션입니다.*/
+                border-top:1px solid #69c;
+                border-bottom:1px solid #69c;
+            }
+            .table_t #boardD_t {
+		display: table-cell;
+		background-color: #e6f9ff;
+		text-align : center;
+		font-weight: bold;
+		padding: 5px 0;
+		/*아래는 메뉴 영역을 구분하기 위한 옵션입니다.*/
+		border-top: 1px solid #69c;
+		border-bottom: 1px solid #69c;
+		text-align: center;
+	}
+            /*아래는 메뉴 영역을 구분하기 위한 옵션입니다.*/
+            .boardD+.boardD{border-left:1px solid #69c}
+            
+  </style>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -31,7 +107,8 @@
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet" >
-
+  <link href="css/subscribe_css.css" rel="stylesheet" >
+ 
 
 </head>
 
@@ -95,14 +172,47 @@
 <br>
 <br>
 
-<div>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bgsMD8utZPQ" frameborder="0" 
+<div class="row" >
+<div id="qnatest">
+<iframe id="qnatest3"  width="530" height="315" src="https://www.youtube.com/embed/bgsMD8utZPQ" frameborder="0" 
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe></div>
+allowfullscreen></iframe>
+</div>
+<div class="qnatest2" id="qnatest" style="width:500px; height:315px; float:left;margin-left:10px;" >
+<h3  >Q&A</h3>
+
+<nav class="table_t">
+							<ul class="board">
+								
+								<li id="boardD_t">제목</li>
+								<li id="boardD_t">작성일</li>
+								
+							</ul>
+							
+							<c:forEach var="x" items="${list}" end="6">
+							
+							<ul class="board">
+								
+								<li id="boardD" style="text-align: left"><c:forEach begin="1" end="${x.repIndent }"><%= "&nbsp;&nbsp;" %></c:forEach>
+									<a href="QnaRetrieveServlet?num=${x.num}"><strong>${x.title }</strong></a></li>
+									<li id="boardD">${x.writeday }</li>
+								
+							</ul>
+							
+							</c:forEach>
+							
+							
+							</nav>
+</div>
+						
+
+</div>
 <br>
+
 
       </div>
     </section><!-- End Why Us Section -->
+
 
 
 

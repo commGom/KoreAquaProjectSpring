@@ -40,6 +40,8 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+<!-- Template Body CSS File -->
+<link href="css/diction.css" rel="stylesheet">
 </head>
 
 <body>
@@ -56,13 +58,13 @@
 				<h2></h2>
 				<ol>
 					<li><a href="<c:url value='/' />">Home</a></li>
-					<li>Inner Page</li>
+					<li><a href="<c:url value='' />">Inner Page</a></li>
 				</ol>
 			</div>
 
 		</div>
 	</section>
-
+	
 	<section class="inner-page">
 		<div class="content">
 			<div class="container" style="text-align: center; font-size: 22px;">
@@ -125,8 +127,11 @@
 								
 							</c:forEach>
 						
-						<tr class="paging" style="text-align: center; font-size: 22px; padding-bottom: 30px;">
-
+						
+								</td>
+						
+					</table><!-- 93td --> 
+					<tr class="paging" style="text-align: center; font-size: 22px; padding-bottom: 30px;">
 							<td>
 								<c:set var="initial" value="${initial }"/>
 								<c:set var="curPage" value="${curPage }" /> 
@@ -140,8 +145,14 @@
 								<fmt:parseNumber var="NextBlock" type="number" value="${nextBlock-1}" />
 																	
 								<!--########## 이전 페이지 링크 출력 ############ -->
+						     	 <c:if test="${ curPage > 2 }">
+									<a href="Order?initial=${initial}&curPage=${ 1 }">[1 페이지로]</a>
+				 		    	</c:if> 
+				 		    	<c:if test="${ curPage > 1 }">
+									<a href="Order?initial=${initial}&curPage=${ curPage - 1 }">[이전 페이지]</a>
+				 		    	</c:if> 
 						     	 <c:if test="${ curPage > 10 }">
-									<a href="Order?initial=${initial}&curPage=${ curPage - 10}">[이전 페이지 ]</a>
+									<a href="Order?initial=${initial}&curPage=${ curPage - 10}">[이전 10 페이지]</a>
 				 		    	</c:if> 
 									
 								<!--########## 페이지 출력 ############ --> 
@@ -161,13 +172,14 @@
 									
 								<!--########## 다음 페이지 링크 출력 ############ -->
 								 <c:if test="${ curPage < totalPage  }">
-										<a href="Order?initial=${initial}&curPage=${ curPage + 10}">[다음 페이지]</a>
+										<a href="Order?initial=${initial}&curPage=${ curPage + 1}">[다음 페이지]</a>
+										<c:if test="${ totalPage > 10  }">
+										<a href="Order?initial=${initial}&curPage=${ curPage + 10}">[다음 10 페이지]</a>
+										</c:if>
+										<a href="Order?initial=${initial}&curPage=${ totalPage }">[마지막 페이지]</a>
 								</c:if>
 							</td>
 						</tr> <!-- end paging -->
-								</td>
-						
-					</table><!-- 93td --> 
 				</tr><!-- 92 tr -->
 			</table><!-- 73 table -->
 		</div>

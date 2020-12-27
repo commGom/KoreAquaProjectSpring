@@ -11,7 +11,7 @@
 <meta property="og:image"         content="https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?cs=srgb&dl=pexels-lisa-fotios-1346155.jpg&fm=jpg" />
 
 <title>Insert title here</title>
-
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script  src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type='text/javascript'>
 //페이스북 링크 전달 (!!! 고정아이피 사용이 필요해, 현재는 작동X. 추후 호스팅 후 변경 예정!!!)
@@ -69,7 +69,34 @@ function sendLink(){
       ]
     });
 }
-  //]]>
+
+//subscribe
+$(document).ready(function(){
+$(".btemail").click(function(){
+	var useremail = $(".useremail").val();
+	
+	var bool=true;
+	
+	if(bool){
+		$.ajax({
+			url:"subscribemail",
+			/* url:"<c:url value='/subscribemail'/>", */
+			type:"post",
+			dataType:"text",
+			data:{"useremail":useremail},
+			success: function(result){
+				alert("구독 성공!");
+				console.log(result);
+				bool=false;
+			},
+			error:function(xhr, status, error){
+				alert("구독 실패 Error: "+status + "error: "+ error);
+			}
+		});//end ajax
+	}
+});
+
+});
 </script>
 </head>
 <body>
@@ -94,7 +121,7 @@ function sendLink(){
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>자세한 정보가 궁금하다면?</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.jsp">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">수돗물 수질 조회</a></li>
@@ -119,11 +146,12 @@ function sendLink(){
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
             <p>수질에 대한 정보를 받아보고 싶다면 구독해주세요!</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            <div class="newsletter-sub" >
+             <input type="email" name="useremail" id="useremail" class="useremail">           
+              <input type="button" name="btemail" class="btemail" id="btemail" value="Subscribe">                     
+             </div>
           </div>
-
+          
         </div>
       </div>
     </div>

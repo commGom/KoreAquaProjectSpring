@@ -1,0 +1,72 @@
+.inner_page{
+	width: 890px;
+    min-height: 600px;
+	margin:0 auto;
+	
+}
+ .sub_top h1{
+    font-size: 32px;
+    letter-spacing: -2px;
+    font-weight: 400;
+    border-bottom: 1px solid #eaeaea;
+    padding: 22px 0 15px 0;
+    margin-left: 4%;
+ }
+ .sub_top2{
+ padding-left: 13px;
+ margin: 20px 0 5px 35px;
+ font-size: 16px;
+ font-weight: 600;
+ }
+ .inner_page form{
+ margin:0 auto;
+ padding:15px 0;
+ text-align: center;
+ margin-left: 4%;
+ } 
+ .board_sch{
+ text-align: center;
+  vertical-align: middle;
+  margin-top: 10px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+ }
+ .board_sch .AInit{
+ border: 1px solid #d4d4d4; 
+ padding:2px; 
+ }
+ .board_sch .AInit .searchValue{
+ width:50%;
+ }  
+ .div_con{
+ border-top: 2px solid #666;
+ border-bottom: 1px solid #ddd;
+ padding-top: 30px;
+ }
+ .title {
+ float:left;
+ margin:auto;
+ width: 50%; 
+ height:150px;
+ overflow:hidden;
+ padding-bottom: 15px;
+ padding-right: 15px;
+ } 
+.title img{ 
+ border: 1px solid #ddd;
+ padding: 1px;
+ width: 160px; 
+ height: 110px;	
+ margin-right: 10px;
+} 
+ .title p{
+ padding-top:11px;
+ margin:auto;
+ height:80px;
+ overflow:hidden; 
+ text-overflow: ellipsis;
+ }
+ /*Paging*/
+ .curPage{
+ color:orange;
+ }
