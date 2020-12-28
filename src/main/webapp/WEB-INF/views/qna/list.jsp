@@ -78,6 +78,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <link href="${path}/assets/css/style.css" rel="stylesheet">
+<link href="${path}/css/subscribe_css.css" rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="${path}/css/qna.css">
 
 </head>

@@ -34,6 +34,7 @@
 <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+<link href="css/subscribe_css.css" rel="stylesheet" >
 <!-- Template Body CSS File -->
 <link href="css/diction.css" rel="stylesheet">
 </head>

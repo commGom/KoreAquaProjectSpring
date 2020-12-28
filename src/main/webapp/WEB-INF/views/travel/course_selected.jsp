@@ -34,6 +34,7 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+<link href="css/subscribe_css.css" rel="stylesheet" >
 <!-- Template innerPage CSS File -->
 <link href="css/travel.css" rel="stylesheet">
 </head>

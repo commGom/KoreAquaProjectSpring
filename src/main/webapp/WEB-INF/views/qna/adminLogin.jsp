@@ -48,6 +48,7 @@
 <!-- Template Main CSS File -->
 <link href="${path}/assets/css/style.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${path}/css/qna.css">
+<link href="${path}/css/subscribe_css.css" rel="stylesheet" >
 </head>
 <body>
 
