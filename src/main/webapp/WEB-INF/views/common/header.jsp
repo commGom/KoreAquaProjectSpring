@@ -39,7 +39,7 @@
             
              <li class="drop-down"><a href="">물과 여행정보</a>
               <ul>
-                <li><a href="Travel_course">강 따라</a></li>
+                <li><a href="Course">강 따라</a></li>
                 <li><a href="Area">명소 따라</a></li>               
               </ul>
             </li>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.DictionDTO;
-import com.dto.PageDTO;
+import com.dto.DictionPageDTO;
 import com.service.DictionService;
 
 @Controller
@@ -25,7 +25,7 @@ public class DictionController {
 	public ModelAndView DictionServlet(@RequestParam(required=false, defaultValue="hnm") String hnm,
 			@RequestParam(required=false, defaultValue="1") String curPage) {
 	
-		PageDTO pDTO = service.searchAll(Integer.parseInt(curPage), hnm);
+		DictionPageDTO pDTO = service.searchAll(Integer.parseInt(curPage), hnm);
 		List<DictionDTO> list = pDTO.getList();
 		int perPage = pDTO.getPerPage();
 		int totalCount = pDTO.getTotalCount();
@@ -40,6 +40,5 @@ public class DictionController {
 		return mav; 
 		
 	}
-	
-	
+		
 }

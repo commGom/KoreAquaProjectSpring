@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TravelMapper">
 
-	<select id="totalCount_course" resultType="int"
+	<select id="Course_TotalCount" resultType="int"
 		parameterType="hashmap">
 		select count(rimage)from travel_course
 		<where>
@@ -26,69 +26,73 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 
-	<select id="main" parameterType="string" resultType="TravelDTO">
-		select *
-		from travel_course order by rImage
+	<select id="Course_Main" parameterType="string"
+		resultType="CourseDTO">
+		select * from travel_course order by rImage
 	</select>
 
-	<select id="course" resultType="TravelDTO">
-		select * from travel_course where
+	<select id="Course_SelectedArea" resultType="TravelDTO">
+		select * from
+		travel_course where
 		regioncd = UPPER (#{course})
 	</select>
-	
-	<!-- /////////////////////////////////////////////////////////////////////////////////////////////// -->
-	<select id="area_main" resultType="AreaDTO">
+
+	<!-- /////////////// Area /////////////// -->
+	<select id="Area_main" resultType="AreaDTO">
 		select * from travel_area
 	</select>
-	
-	<select id="totalCount_area" resultType="int"
+
+	<select id="Area_TotalCount" resultType="int"
 		parameterType="hashmap">
-		select count(intro) from travel_area 
+		select count(intro) from travel_area
 		<where>
 			<if test="check == 'check'">
-			TITLE like '%'||#{TITLE}||'%'
-			</if> 
+				TITLE like '%'||#{TITLE}||'%'
+			</if>
+		</where>
+	</select>
+
+	<select id="Area_InitialSearch" resultType="AreaDTO"
+		parameterType="string">
+		select * from travel_area
+		<where>
+			<if test="check=='check'">
+				TITLE like '%'||#{TITLE}||'%'
+			</if>
+
 		</where>
 	</select>
 	
-	<select id="ATitle" resultType="AreaDTO" parameterType="string"> 
-		select * from travel_area  
-		<where>
-		<if test="check=='check'">
-		TITLE like '%'||#{TITLE}||'%'   
-		</if>  
-		
-		</where>
-	</select>   
-
-	<select id="totalCount_REGIONCD" resultType="int"
+	<select id="Area_IS_TotalCount" resultType="int"
 		parameterType="hashmap">
-		select count(REGIONCD) from travel_area where REGIONCD = #{REGIONCD} 
-	</select> 
+		select count(TITLE) from travel_area where TITLE like '%'||#{TITLE}||'%'
+	</select>
 
-	<select id="totalCount_TITLE" resultType="int"
-		parameterType="hashmap"> 
-		select count(TITLE) from travel_area where TITLE like '%'||#{TITLE}||'%' 
-	</select> 
-	
-	<select id="ARegion" resultType="AreaDTO" parameterType="string"> 
+
+	<select id="Area_RegionCd_TotalCount" resultType="int"
+		parameterType="hashmap">
+		select count(REGIONCD) from travel_area where REGIONCD =
+		#{REGIONCD}
+	</select>
+
+	<select id="Area_Region" resultType="AreaDTO" parameterType="string">
 		select * from travel_area
 		<where>
-		<if test="REGIONCD=='HA'">
-		REGIONCD='HA'
-		</if> 
-		<if test="REGIONCD=='SJ'">
-		REGIONCD='SJ'
-		</if>
-		<if test="REGIONCD=='ND'">
-		REGIONCD='ND' 
-		</if>
-		<if test="REGIONCD=='YS'">
-		REGIONCD='YS' 
-		</if>
-		<if test="REGIONCD=='GU'"> 
-		REGIONCD='GU'
-		</if>
+			<if test="REGIONCD=='HA'">
+				REGIONCD='HA'
+			</if>
+			<if test="REGIONCD=='SJ'">
+				REGIONCD='SJ'
+			</if>
+			<if test="REGIONCD=='ND'">
+				REGIONCD='ND'
+			</if>
+			<if test="REGIONCD=='YS'">
+				REGIONCD='YS'
+			</if>
+			<if test="REGIONCD=='GU'">
+				REGIONCD='GU'
+			</if>
 		</where>
-	</select>   
+	</select>
 </mapper> 

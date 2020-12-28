@@ -56,16 +56,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 
-	<select id="searchAll" resultType="DictionDTO">
+	<select id="searchAll" resultType="DictionPageDTO">
 		select * from diction order by hnm asc
 	</select>
 
-	<select id="search" resultType="DictionDTO"
+	<select id="search" resultType="DictionPageDTO"
 		parameterType="string">
 		select * from diction where hnm like '%'||#{hnm}||'%' order by hnm asc
 	</select>
 
-	<select id="initial" resultType="DictionDTO"
+	<select id="initial" resultType="DictionPageDTO"
 		parameterType="hashmap"> 
 		select * from diction
 		<where>

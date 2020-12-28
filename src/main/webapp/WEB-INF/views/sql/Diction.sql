@@ -1,20 +1,12 @@
-create table Water_Travel
-(
-  resultCode varchar2(3000),
-  resultMsg varchar2(3000),
-  course varchar2(3000),
-  intro varchar2(3000),
-  region varchar2(3000),
-  regionCd varchar2(3000),
-  searchType varchar2(3000),
-  searchTypeCd varchar2(3000),
-  title varchar2(3000),
-  numOfRows varchar2(3000),
-  PageNo varchar2(3000),
-  totalCount varchar2(3000)
+create table Diction(
+RESULTCODE varchar2 (5),
+RESULTMSG  varchar2 (20),
+cNm varchar2 (100),
+eNmvarchar2 (1000),
+explain varchar2 (3000),
+hNm varchar2 (100),
+rgsdt varchar2 (100),
+numOfRows varchar2 (10),
+PageNo varchar2(5),
+totalCount varchar2 (5)
 );
-
-drop table WATER_TRAVEL;
-
-select count(*) from diction where hnm like '%'|| '수'|| '%';
-

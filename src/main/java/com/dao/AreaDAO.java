@@ -16,56 +16,57 @@ public class AreaDAO {
 	@Autowired
 	SqlSessionTemplate template;
 	
-	public int totalCount (HashMap<String, String> map) {
-		return template.selectOne("TravelMapper.totalCount_area",map);
-	}
 	
-	public int totalCount_REGIONCD (HashMap<String, String> map) {
-		return template.selectOne("TravelMapper.totalCount_REGIONCD",map); 
+	public int Area_TotalCount (HashMap<String, String> map) {
+		return template.selectOne("TravelMapper.Area_TotalCount",map);
 	}
-	
-	public int totalCount_TITLE (HashMap<String, String> map) {
-		return template.selectOne("TravelMapper.totalCount_TITLE",map);  
-	}  
 	
 	public AreaPage AreaMain(int curPage, HashMap<String, String> map) {
 		AreaPage dto = new AreaPage();
 		int aperPage = dto.getPerPage();
 		int offset = (curPage -1)*aperPage;
-		List<AreaDTO> list = template.selectList("TravelMapper.area_main", map, new RowBounds(offset, aperPage));
+		List<AreaDTO> list = template.selectList("TravelMapper.Area_main", map, new RowBounds(offset, aperPage));
 		dto.setCurPage(curPage); 
 		dto.setList(list);
-		dto.setTotalCount(totalCount(map));
-		System.out.println(list);
+		dto.setTotalCount(Area_TotalCount(map));
 		return dto;
 	}
-	public AreaPage ATitle (HashMap<String, String> map, int curPage, String REGIONCD){
+	
+	
+	
+	public int Area_IS_TotalCount (HashMap<String, String> map) {
+		return template.selectOne("TravelMapper.Area_IS_TotalCount",map);  
+	}  
+	
+	public AreaPage Area_InitialSearch (HashMap<String, String> map, int curPage, String REGIONCD){
 		AreaPage aPage = new AreaPage();
 		AreaDTO aDTO = new AreaDTO();
 		int perPage = aPage.getPerPage();  
 		int offset = (curPage-1)*perPage; 
 		aDTO.setREGIONCD(REGIONCD);
-		List<AreaDTO> list = template.selectList("TravelMapper.ATitle", map ,new RowBounds(offset, perPage));
-		System.out.println(list); 
+		List<AreaDTO> list = template.selectList("TravelMapper.Area_InitialSearch", map ,new RowBounds(offset, perPage));
 		aPage.setCurPage(curPage);
 		aPage.setList(list); 
-		aPage.setTotalCount(totalCount_TITLE(map));  
-		System.out.println(totalCount_TITLE(map));  
-		//System.out.println(map); 
+		aPage.setTotalCount(Area_IS_TotalCount(map));  
 		return aPage;  
 	}
 	
-	public AreaPage ARegion (HashMap<String, String> map, int curPage, String REGIONCD){
+	
+	
+	public int Area_RegionCd_TotalCount (HashMap<String, String> map) {
+		return template.selectOne("TravelMapper.Area_RegionCd_TotalCount",map); 
+	}
+	
+	public AreaPage Area_Region (HashMap<String, String> map, int curPage, String REGIONCD){
 		AreaPage aPage = new AreaPage();
 		AreaDTO aDTO = new AreaDTO();
 		int perPage = aPage.getPerPage();  
 		int offset = (curPage-1)*perPage; 
 		aDTO.setREGIONCD(REGIONCD);
-		List<AreaDTO> list = template.selectList("TravelMapper.ARegion", map ,new RowBounds(offset, perPage));
+		List<AreaDTO> list = template.selectList("TravelMapper.Area_Region", map ,new RowBounds(offset, perPage));
 		aPage.setCurPage(curPage);
 		aPage.setList(list);  
-		aPage.setTotalCount(totalCount_REGIONCD(map));
-		//System.out.println(totalCount_REGIONCD(session, map));
+		aPage.setTotalCount(Area_RegionCd_TotalCount(map));
 		return aPage;  
 	}
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.DictionDTO;
-import com.dto.PageDTO;
+import com.dto.DictionPageDTO;
 import com.service.DictionService;
 
 
@@ -21,12 +21,12 @@ public class DInitialController {
 	@Autowired
 	DictionService service; 
 	
-	@RequestMapping(value="/DInitial", method = RequestMethod.GET)
+	@RequestMapping(value="/Diction_Initial", method = RequestMethod.GET)
 
 	public ModelAndView DictionServlet(@RequestParam("searchValue") String hnm,
 			@RequestParam(required=false, defaultValue="1") String curPage) {
 	
-		PageDTO pDTO = service.search(hnm, Integer.parseInt(curPage));
+		DictionPageDTO pDTO = service.search(hnm, Integer.parseInt(curPage));
 		List<DictionDTO> list = pDTO.getList();
 		int perPage = pDTO.getPerPage();
 		int totalCount = pDTO.getTotalCount();
@@ -38,7 +38,7 @@ public class DInitialController {
 		mav.addObject("curPage",curPage);
 		mav.addObject("list", list);
 		mav.addObject("test", "test");
-		mav.setViewName("Initial");
+		mav.setViewName("Diction_Initial");
 		return mav; 
 		
 	}

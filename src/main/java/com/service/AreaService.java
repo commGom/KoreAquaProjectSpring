@@ -16,14 +16,14 @@ public class AreaService {
 	@Autowired
 	AreaDAO dao; 
 	
-	 public AreaPage area_main(int curPage, String area) {
+	 public AreaPage Area_main(int curPage, String area) {
 		 HashMap<String, String> map = new HashMap<String, String>();
 		 map.put("area", area);
 		 AreaPage pDTO = dao.AreaMain(curPage, map);
 		return pDTO;
 	 }
 	 
-	 public AreaPage AInitial (String TITLE, int curPage, String REGIONCD) {
+	 public AreaPage Area_Initial (String TITLE, int curPage, String REGIONCD) {
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("check", "check");
 			map.put("TITLE", TITLE ); 
@@ -31,11 +31,11 @@ public class AreaService {
 		
 			if(TITLE.equals("")) { 
 				System.out.println("asdasdasd");
-				AreaPage list = dao.ARegion(map,curPage,REGIONCD);
+				AreaPage list = dao.Area_Region(map,curPage,REGIONCD);
 				return list;   
 			} else {
 				System.out.println("bbbbbbbbbbbbbbbbb");
-				AreaPage list = dao.ATitle(map, curPage, REGIONCD);
+				AreaPage list = dao.Area_InitialSearch(map, curPage, REGIONCD);
 				return list;   
 			}
 		 }  	  

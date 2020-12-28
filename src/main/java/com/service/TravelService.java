@@ -10,24 +10,24 @@ import com.config.MySqlSessionFactory;
 import com.dao.AreaDAO;
 import com.dao.TravelDAO;
 import com.dto.AreaPage;
-import com.dto.TravelPage;
+import com.dto.CoursePageDTO;
 @Service
 public class TravelService {
 
 	@Autowired
 	 TravelDAO dao; 
 	
-	 public TravelPage main (int curPage, String regioncd){
+	 public CoursePageDTO Course_Main (int curPage, String regioncd){
 			HashMap<String, String> map = new HashMap<String, String>(); 
 			map.put("regioncd", regioncd);
-			TravelPage pDTO = dao.main(curPage, map);
+			CoursePageDTO pDTO = dao.Course_Main(curPage, map);
 			return pDTO; 
 		}//end main
 	 
-	 public TravelPage course (int curPage, String course){
+	 public CoursePageDTO Course_SelectedArea (int curPage, String course){
 		 HashMap<String, String> map = new HashMap<String, String>(); 
 			map.put("course", course);
-			TravelPage pDTO = dao.course(curPage, map);
+			CoursePageDTO pDTO = dao.Course_SelectedArea(curPage, map);
 			return pDTO;
 		}//end course
 	 	

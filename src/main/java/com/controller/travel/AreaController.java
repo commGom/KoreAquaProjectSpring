@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.AreaDTO;
 import com.dto.AreaPage;
-import com.dto.TravelDTO;
+import com.dto.CourseDTO;
 import com.service.AreaService;
 
 
@@ -25,7 +25,7 @@ public class AreaController {
 	public ModelAndView AreaCon (@RequestParam(required=false, defaultValue="1") String curPage) {
 		
 		
-		AreaPage aDTO = service.area_main(Integer.parseInt(curPage), "area"); 
+		AreaPage aDTO = service.Area_main(Integer.parseInt(curPage), "area"); 
 		List<AreaDTO> list = aDTO.getList();
 		System.out.println(list);
 		int perPage = aDTO.getPerPage();

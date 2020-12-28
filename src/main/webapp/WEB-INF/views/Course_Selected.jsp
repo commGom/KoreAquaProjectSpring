@@ -7,6 +7,6 @@
 <title>물과 여행 정보</title>
 </head>
 <body>
-	<jsp:include page="travel/ainit.jsp" flush="true" />
-</body>
+	<jsp:include page="travel/course_selected.jsp" flush="true" />
+</body> 
 </html>

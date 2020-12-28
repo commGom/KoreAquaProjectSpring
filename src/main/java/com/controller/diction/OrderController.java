@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.DictionDTO;
-import com.dto.PageDTO;
+import com.dto.DictionPageDTO;
 import com.service.DictionService;
 
 
@@ -23,12 +23,12 @@ public class OrderController {
 	@Autowired
 	DictionService service; 
 	
-	@RequestMapping(value="/Order", method = RequestMethod.GET)
+	@RequestMapping(value="/Diction_Order", method = RequestMethod.GET)
 
 	public ModelAndView DictionServlet(@RequestParam("initial") String hnm,
 			@RequestParam(required=false, defaultValue="1") String curPage) {
 	
-		PageDTO pDTO = service.initial(hnm, Integer.parseInt(curPage));
+		DictionPageDTO pDTO = service.initial(hnm, Integer.parseInt(curPage));
 		List<DictionDTO> list = pDTO.getList();
 		int perPage = pDTO.getPerPage();
 		int totalCount = pDTO.getTotalCount();
@@ -41,7 +41,7 @@ public class OrderController {
 		mav.addObject("list", list);
 		System.out.println(list); 
 		mav.addObject("test", "test");
-		mav.setViewName("Order");
+		mav.setViewName("Diction_Order");
 		return mav; 
 		
 	}
