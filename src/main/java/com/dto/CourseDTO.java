@@ -2,8 +2,8 @@ package com.dto;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("TravelDTO")
-public class TravelDTO {
+@Alias("CourseDTO")
+public class CourseDTO {
 
 	
 	private String resultcode;
@@ -20,12 +20,12 @@ public class TravelDTO {
 	private String totalcount;
 	private String rImage;
 	
-	public TravelDTO() {
+	public CourseDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TravelDTO(String resultcode, String resultmsg, String course, String intro, String region, String regionCd,
+	public CourseDTO(String resultcode, String resultmsg, String course, String intro, String region, String regionCd,
 			String searchType, String searchTypeCd, String title, String numofrows, String pageno, String totalcount,
 			String rImage) {
 		super();

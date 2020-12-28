@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>물과 여행 정보</title>
+<title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="travel/travel.jsp" flush="true" />
+<jsp:include page="diction/diction_initial.jsp" flush="true" />
 </body>
-</html>  
- 
+</html> 

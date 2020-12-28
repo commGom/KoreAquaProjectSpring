@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dto.TravelDTO;
-import com.dto.TravelPage;
+import com.dto.CourseDTO;
+import com.dto.CoursePageDTO;
 import com.service.TravelService;
 
 @Controller
@@ -20,14 +20,14 @@ public class CourseController  {
 	@Autowired
 	TravelService service;
 	
-	@RequestMapping(value="/CourseServlet", method = RequestMethod.GET)
+	@RequestMapping(value="/Course", method = RequestMethod.GET)
 	
 	public ModelAndView CourseCon(@RequestParam(required=false, defaultValue="1")String curPage,
 			@RequestParam(required=false, defaultValue="")String course) {
 		
 		
-		TravelPage pDTO = service.course(Integer.parseInt(curPage), course);
-		List<TravelDTO> list = pDTO.getList();
+		CoursePageDTO pDTO = service.Course_Main(Integer.parseInt(curPage), course);
+		List<CourseDTO> list = pDTO.getList();
 		int perPage = pDTO.getPerPage();
 		int totalCount = pDTO.getTotalCount();
 		
@@ -39,11 +39,6 @@ public class CourseController  {
 		mav.addObject("list", list);
 		mav.addObject("course", course);
 		mav.setViewName("Course"); 
-		System.out.println(curPage+"\t"+perPage+"\t"+totalCount);
 		return mav;
- 
-	}  
-
-		
-
+	}  	
 }

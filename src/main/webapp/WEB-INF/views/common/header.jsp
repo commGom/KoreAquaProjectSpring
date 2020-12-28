@@ -34,12 +34,12 @@
                 </li>
                 <li><a href="MineralSWMark">약수터 조회</a></li>
                 <li><a href="beachMapPresent">해수욕장 조회</a></li><!-- !!태그경로 수정해줘야함!! -->
-              </ul>
+              </ul> 
             </li>
             
              <li class="drop-down"><a href="">물과 여행정보</a>
               <ul>
-                <li><a href="Travel_course">강 따라</a></li>
+                <li><a href="Course">강 따라</a></li>
                 <li><a href="Area">명소 따라</a></li>               
               </ul>
             </li>

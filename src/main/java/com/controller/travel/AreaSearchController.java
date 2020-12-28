@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.AreaDTO;
-import com.dto.AreaPage;
+import com.dto.AreaPageDTO;
 import com.service.AreaService; 
 
 
 @Controller
-public class AreaInitialController  {
+public class AreaSearchController  {
 	
 	@Autowired
 	AreaService service;
 	
-	@RequestMapping(value="/AreaInitialServlet", method = RequestMethod.GET)
+	@RequestMapping(value="/AreaSearch", method = RequestMethod.GET)
 	
 	public ModelAndView AreaInitialCon (@RequestParam(required=false, defaultValue="") String AInit,
 			@RequestParam(required=false, defaultValue="")String searchValue,
@@ -30,8 +30,7 @@ public class AreaInitialController  {
 		
 		String REGIONCD = AInit;
 		String TITLE = searchValue;
-		System.out.println("--------------------"+TITLE);
-		AreaPage aDTO = service.AInitial(TITLE,Integer.parseInt(curPage),REGIONCD);
+		AreaPageDTO aDTO = service.Area_Initial(TITLE,Integer.parseInt(curPage),REGIONCD);
 		List<AreaDTO> list = aDTO.getList();
 		int perPage = aDTO.getPerPage();
 		int totalCount = aDTO.getTotalCount();
@@ -42,7 +41,7 @@ public class AreaInitialController  {
 		mav.addObject("curPage",curPage);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("list", list);
-		mav.setViewName("AInit");
+		mav.setViewName("AreaSearch");
 		return mav; 
 	}
 	

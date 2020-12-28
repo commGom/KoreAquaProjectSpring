@@ -5,8 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="DictionMapper">
 
 	<select id="totalCount" resultType="int" parameterType="hashmap">
-		select count(*)
-		from diction
+		select count(*) from diction
 		<where>
 			<if test="check == 'check'">
 				hnm like '%'||#{hnm}||'%'

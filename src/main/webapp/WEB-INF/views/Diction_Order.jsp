@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>물 백과사전</title>
 </head>
 <body>
-<jsp:include page="diction/initial.jsp" flush="true" />
+<jsp:include page="diction/diction_order.jsp" flush="true" />
 </body>
-</html> 
+</html>  

@@ -4,17 +4,17 @@ import java.util.List;
 
 import org.apache.ibatis.type.Alias; 
 
-@Alias("AreaPage")
-public class AreaPage {
+@Alias("AreaPageDTO")
+public class AreaPageDTO {
 	private List<AreaDTO> list;
 	private int curPage; //현재 페이지 번호
 	private int perPage=8; //한 페이지당 게시물 수  
 	private int totalCount; //전체 게시물 수
-	public AreaPage() {
+	public AreaPageDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public AreaPage(List<AreaDTO> list, int curPage, int perPage, int totalCount) {
+	public AreaPageDTO(List<AreaDTO> list, int curPage, int perPage, int totalCount) {
 		super();
 		this.list = list;
 		this.curPage = curPage;

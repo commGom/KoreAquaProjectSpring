@@ -10,39 +10,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.dto.DictionDTO;
-import com.dto.TravelDTO;
-import com.dto.TravelPage;
+import com.dto.CourseDTO;
+import com.dto.CoursePageDTO;
 import com.service.TravelService;
 
-@Controller 
-public class TravelController  {
+@Controller
+public class CourseSelectedController  {
 
 	@Autowired
 	TravelService service;
 	
-	@RequestMapping(value="/Travel_course", method = RequestMethod.GET)
+	@RequestMapping(value="/Course_Selected", method = RequestMethod.GET)
 	
 	public ModelAndView CourseCon(@RequestParam(required=false, defaultValue="1")String curPage,
-			@RequestParam(required=false, defaultValue="course")String regioncd) {
+			@RequestParam(required=false, defaultValue="")String course) {
 		
 		
-		TravelPage pDTO = service.main(Integer.parseInt(curPage), regioncd);
-		List<TravelDTO> list = pDTO.getList();
+		CoursePageDTO pDTO = service.Course_SelectedArea(Integer.parseInt(curPage), course);
+		List<CourseDTO> list = pDTO.getList();
 		int perPage = pDTO.getPerPage();
 		int totalCount = pDTO.getTotalCount();
-
+		
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("curPage",curPage);
 		mav.addObject("perPage",perPage);
 		mav.addObject("totalCount",totalCount);
 		mav.addObject("list", list);
-		mav.setViewName("Travel"); 
+		mav.addObject("course", course);
+		mav.setViewName("Course_Selected"); 
 		return mav;
  
-	}  
-
-		
+	}  		
 
 }

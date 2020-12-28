@@ -3,13 +3,11 @@ package com.service;
 
 import java.util.HashMap;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.config.MySqlSessionFactory;
 import com.dao.DictionDAO;
-import com.dto.PageDTO;
+import com.dto.DictionPageDTO;
 
 @Service
 public class DictionService {
@@ -17,25 +15,25 @@ public class DictionService {
 	@Autowired
 	DictionDAO dao;
 	
-	public PageDTO searchAll(int curPage, String hnm) {
+	public DictionPageDTO searchAll(int curPage, String hnm) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("hnm", hnm);
-		PageDTO pDTO = dao.searchAll(curPage, map);   
+		DictionPageDTO pDTO = dao.searchAll(curPage, map);   
 		return pDTO;
 	}  
 	
-	public PageDTO search(String hnm, int curPage) {
+	public DictionPageDTO search(String hnm, int curPage) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("check", "check");
 		map.put("hnm", hnm);
-		PageDTO list = dao.search(map, curPage);
+		DictionPageDTO list = dao.search(map, curPage);
 		return list;
 	} 
 	
-	public PageDTO initial(String initial, int curPage) {
+	public DictionPageDTO initial(String initial, int curPage) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("initial", initial);
-		PageDTO pDTO = dao.initial(map, curPage);
+		DictionPageDTO pDTO = dao.initial(map, curPage);
 		return pDTO;
 	}
 }

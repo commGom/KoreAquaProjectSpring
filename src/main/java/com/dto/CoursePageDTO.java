@@ -3,17 +3,17 @@ package com.dto;
 import java.util.List;
 
 import org.apache.ibatis.type.Alias; 
-@Alias("TravelPage")
-public class TravelPage {
-	private List<TravelDTO> list;
+@Alias("CoursePageDTO")
+public class CoursePageDTO {
+	private List<CourseDTO> list;
 	private int curPage; //현재 페이지 번호
 	private int perPage=4; //한 페이지당 게시물 수 
 	private int totalCount; //전체 게시물 수
 	
-	public List<TravelDTO> getList() {
+	public List<CourseDTO> getList() {
 		return list;
 	}
-	public void setList(List<TravelDTO> list) {
+	public void setList(List<CourseDTO> list) {
 		this.list = list;
 	}
 	public int getCurPage() {

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 import org.springframework.beans.factory.annotation.Autowired; 
-@Alias("PageDTO")
-public class PageDTO {
+@Alias("DictionPageDTO")
+public class DictionPageDTO {
 		
 	private List<DictionDTO> list;
 	private int curPage; //현재 페이지 번호

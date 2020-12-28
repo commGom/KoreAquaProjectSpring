@@ -66,21 +66,21 @@
 		<property name="typeAliases">
 			<list>
 				<value>com.dto.AreaDTO</value>
-				<value>com.dto.AreaPage</value>
+				<value>com.dto.AreaPageDTO</value>
 				<value>com.dto.DayDTO</value>
 				<value>com.dto.DictionDTO</value>				
 				<value>com.dto.JusoDTO</value>				
 				<value>com.dto.MineralSpringWaterDTO</value>				
 				<value>com.dto.MonthDTO</value>				
-				<value>com.dto.PageDTO</value>				
-				<value>com.dto.TravelDTO</value>				
-				<value>com.dto.TravelPage</value>				
+				<value>com.dto.DictionPageDTO</value>				
+				<value>com.dto.CourseDTO</value>				
+				<value>com.dto.CoursePageDTO</value>				
 				<value>com.dto.WeekDTO</value>
 				<value>com.dto.BeachDTO</value> <!-- alias 주소는 각 클래스에서 alias 어노테이션으로 설정 -->
 				<value>com.dto.MineralSpringWaterDTO</value>
 				<value>com.dto.MSWInfoDTO</value>
 				<value>com.dto.AdminDTO</value>				
-				<value>com.dto.QnaDTO</value>				
+				<value>com.dto.QnaDTO</value>			 	
 				<value>com.dto.PageQnaDTO</value>				
 				<value>com.dto.SubscribeDTO</value>				
 			</list>		
