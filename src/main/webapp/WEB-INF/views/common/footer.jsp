@@ -152,7 +152,7 @@ $(".btemail").click(function(){
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
-            <p>수질에 대한 정보를 이메일로 받아보고 싶다면 구독을 눌러주세요!</p>
+            <p>수질에 대한 정보를 이메일로 받아보고 싶다면 &emsp; &emsp; &emsp; &emsp;   구독을 눌러주세요!</p>
             <div class="newsletter-sub" >
             
              <input type="email"  name="useremail" id="useremail" class="useremail">           
