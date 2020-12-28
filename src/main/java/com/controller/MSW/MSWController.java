@@ -45,8 +45,7 @@ public class MSWController {
 		ModelAndView mav=new ModelAndView();
 		MineralSpringWaterDTO dto=new MineralSpringWaterDTO();
 		try {
-		System.out.println("");
-		System.out.println("파싱한 약수터이름"+mnrlspNm);
+
 		mnrlspNm = URLEncoder.encode(mnrlspNm, "utf-8");
 		System.out.println("encoding한 약수터이름"+mnrlspNm);
 		String url="http://api.data.go.kr/openapi/tn_pubr_public_appn_mnrlsp_info_api?serviceKey=3Md9YXyRjKEN438TPDzd8itwECgi8TBe%2Bwou4UlrGSG%2Bng6GKCD42ROverxTkZzBT3sNFPWBxIHzQSBu7TQIKw%3D%3D&pageNo=0&numOfRows=100&type=xml&mnrlspNm="+mnrlspNm;
@@ -110,14 +109,19 @@ public class MSWController {
 					qltwtrInspctDate=getTagValue("qltwtrInspctDate", eElement);
 					}
 					//
-					String qltwtrInspctResultType="자료없음";
-					if(getTagValue("qltwtrInspctResultType", eElement)!=null) {
-					qltwtrInspctResultType=getTagValue("qltwtrInspctResultType", eElement);
-					}
-					//
-					String improptIem="";
+
+					String improptIem="없음";
 					if(getTagValue("improptIem", eElement)!=null) {
 					improptIem=getTagValue("improptIem", eElement);
+					}
+					
+					//
+					String qltwtrInspctResultType="적합";
+					if(getTagValue("qltwtrInspctResultType", eElement).equals("부적합")) {
+					qltwtrInspctResultType=getTagValue("qltwtrInspctResultType", eElement);
+					if(getTagValue("improptIem", eElement)==null) {
+						improptIem="검사 중";
+					}
 					}
 					//
 					String phoneNumber="자료없음";

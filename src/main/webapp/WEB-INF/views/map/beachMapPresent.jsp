@@ -148,8 +148,8 @@ font-weight: 250;
 			<nav class="table_t">
 			
 			<ul class="board">
-			<li id="boardD">시도명</li>
-			<li id="boardD">정점명<br></li>
+			<li id="boardD">지역명</li>
+			<li id="boardD">해 변<br></li>
 			<li id="boardD">대장균</li>
 			<li id="boardD">장구균 </li>
 			<li id="boardD">적합여부</li>
@@ -163,7 +163,7 @@ font-weight: 250;
 			<li id="boardD"><c:out value="${bdto.res2}"/></li>
 			<li id="boardD"><c:out value="${bdto.resYn}"/></li>
 			<li id="boardD"><c:out value="${bdto.resYear}"/></li>
-			<li id="boardD"><a href="https://map.kakao.com/link/to/<c:out value="${bdto.staNm}"/>,<c:out value="${bdto.lat}"/>,<c:out value="${bdto.lon}"/>" style="color:blue" target="_blank"><c:out value="${bdto.staNm}"/><c:out value="${loc}"/></a></li>
+			<li id="boardD"><a href="https://map.kakao.com/link/to/<c:out value="${bdto.staNm}"/>,<c:out value="${bdto.lat}"/>,<c:out value="${bdto.lon}"/>" style="color:blue"><c:out value="${loc}"/></a></li>
 			</ul>	
 			</nav>
 		</td>
@@ -259,7 +259,7 @@ $("#sidoNm").on("change", function() {
 			for (var n = 0; n < markers.length; n ++) {
 			    // 마커에 표시할 인포윈도우를 생성합니다 
 			    var infowindow = new kakao.maps.InfoWindow({
-			        content: '<div style="padding:5px;"><a href="Beach?staNm='+staNm+'" style="color:blue" target="_blank">'+staNm+' 해수욕장</a> <a href="https://map.kakao.com/link/to/'+staNm+','+lat+','+lng+'" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표시할 내용
+			        content: '<div style="padding:5px;"><a href="Beach?staNm='+staNm+'" style="color:blue">'+staNm+'</a></div>', // 인포윈도우에 표시할 내용
 			        removable : true
 			    });
 				kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, infowindow));
@@ -289,10 +289,10 @@ $("#sidoNm").on("change", function() {
 	//조회 버튼 클릭 시 시도, 시군, 동 값 유효성 검사 후 DayDataServlet으로 이동
 	$("#searchBtn").on("click", function () {
 		
-		var staNm = $("#staNm").val().trim();
+		var staNm =$("#staNm").val().trim();
 		
 		
-		$("form").attr("action", "Beach?staNm="+staNm);						
+		$("form").attr("action","Beach?staNm="+staNm);						
 	});
 </script>
 </body>
