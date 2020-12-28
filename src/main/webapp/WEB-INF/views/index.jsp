@@ -194,7 +194,7 @@ allowfullscreen></iframe>
 							<ul class="board">
 								
 								<li id="boardD" style="text-align: left"><c:forEach begin="1" end="${x.repIndent }"><%= "&nbsp;&nbsp;" %></c:forEach>
-									<a href="QnaRetrieveServlet?num=${x.num}"><strong>${x.title }</strong></a></li>
+									<a href="${pageContext.request.contextPath}/qna/num/${x.num}"><strong>${x.title }</strong></a></li>
 									<li id="boardD">${x.writeday }</li>
 								
 							</ul>
