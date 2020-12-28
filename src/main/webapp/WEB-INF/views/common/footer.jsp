@@ -121,7 +121,7 @@ $(".btemail").click(function(){
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>자세한 정보가 궁금하다면?</h4>
+            <h4>Our service</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.jsp">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">수돗물 수질 조회</a></li>
@@ -147,8 +147,10 @@ $(".btemail").click(function(){
             <h4>Join Our Newsletter</h4>
             <p>수질에 대한 정보를 받아보고 싶다면 구독해주세요!</p>
             <div class="newsletter-sub" >
-             <input type="email" name="useremail" id="useremail" class="useremail">           
-              <input type="button" name="btemail" class="btemail" id="btemail" value="Subscribe">                     
+            
+             <input type="email"  name="useremail" id="useremail" class="useremail">           
+              <input type="button" name="btemail" class="btemail" id="btemail" value="Subscribe">    
+                            
              </div>
           </div>
           
