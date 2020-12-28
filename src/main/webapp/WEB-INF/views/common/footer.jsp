@@ -133,7 +133,7 @@ $(".btemail").click(function(){
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>자세한 정보가 궁금하다면?</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="https://ilovewater.or.kr/" target="_blank">물사랑누리집</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="http://www.wamis.go.kr/" target="_blank">국가수자원관리종합정보시스템</a></li>
