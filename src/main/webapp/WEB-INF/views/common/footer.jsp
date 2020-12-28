@@ -74,7 +74,7 @@ function sendLink(){
 $(document).ready(function(){
 $(".btemail").click(function(){
 	var useremail = $(".useremail").val();
-	
+	var x = "@";
 	var bool=true;
 	
 	if(bool){
@@ -85,15 +85,22 @@ $(".btemail").click(function(){
 			dataType:"text",
 			data:{"useremail":useremail},
 			success: function(result){
-				alert("구독 성공!");
+				if(result.search(x)>0 ){
+				
+				alert("구독 성공하였습니다.");
 				console.log(result);
-				bool=false;
+				bool=false;}
+				if (result.search(x)== -1){
+					alert("구독 실패하였습니다. 올바른 이메일을 작성해주세요. ");
+				}
 			},
 			error:function(xhr, status, error){
-				alert("구독 실패 Error: "+status + "error: "+ error);
+				alert("구독 실패하였습니다. 올바른 이메일을 작성해주세요. ");
+				
 			}
 		});//end ajax
 	}
+	
 });
 
 });
