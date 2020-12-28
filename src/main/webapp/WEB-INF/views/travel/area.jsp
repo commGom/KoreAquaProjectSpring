@@ -47,6 +47,7 @@ $(document).ready(function(){
 </script>  
 <!-- Template Main CSS File --> 
 <link href="assets/css/style.css" rel="stylesheet">
+<link href="css/subscribe_css.css" rel="stylesheet" >
 <link href="css/area.css" rel="stylesheet"> 
 </head>
 <body>

@@ -187,7 +187,7 @@ allowfullscreen></iframe>
 								
 							</ul>
 							
-							<c:forEach var="x" items="${list}" end="6">
+							<c:forEach var="x" items="${list}" end="4">
 							
 							<ul class="board">
 								
