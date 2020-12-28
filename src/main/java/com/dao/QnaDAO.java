@@ -82,8 +82,8 @@ public class QnaDAO {
 		int n = template.update("QnaMapper.repCnt", map);
 	}
 
-	public void write(QnaDTO dto) {
-		int num = template.insert("QnaMapper.write", dto);
+	public void write(QnaDTO qDTO) {
+		int num = template.insert("QnaMapper.write", qDTO);
 	}
 
 	public QnaDTO selectByNum(int num) {
@@ -100,8 +100,8 @@ public class QnaDAO {
 		int x = template.delete("QnaMapper.deleteByNum", Integer.parseInt(num));
 	}
 
-	public void updateByNum(QnaDTO dto) {
-		int x = template.update("QnaMapper.updateByNum", dto);
+	public void updateByNum(QnaDTO qDTO) {
+		int x = template.update("QnaMapper.updateByNum", qDTO);
 	}
 	
 	public QnaDTO passwdCheck(Map<String, Object> map) {

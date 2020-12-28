@@ -66,8 +66,9 @@ public class QnaReplyController {
 			
 			// DB에 insert할 qDTO에 fileName을 set
 			qDTO.setFileName(fileName);
+		} else { // 첨부한 파일이 없는 경우
+			qDTO.setFileName(fileName);
 		}
-		
 		// qDTO를 service.reply로 insert
 		service.reply(qDTO);
 		

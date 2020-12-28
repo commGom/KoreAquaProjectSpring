@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="reply" parameterType="QnaDTO">
     	insert into Qna(num, title, author, email, passwd, content, fileName, repRoot, repStep, repIndent)
-    	values(Qna_seq.nextval, #{title}, #{author}, 'admin', 0000, #{content}, #{fileName}, #{repRoot}, #{repStep}, #{repIndent})
+    	values(Qna_seq.nextval, #{title}, #{author}, 'admin', '0000', #{content}, #{fileName}, #{repRoot}, #{repStep}, #{repIndent})
     </insert>
 	
     <insert id="write" parameterType="QnaDTO">
