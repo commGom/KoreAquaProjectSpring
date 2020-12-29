@@ -33,6 +33,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="css/subscribe_css.css" rel="stylesheet" >
    <style type="text/css">
    .one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter {
     /* display: inline-block; */

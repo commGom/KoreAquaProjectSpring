@@ -53,7 +53,12 @@ public class BeachController {
 		try {
 			System.out.println("받아온 해수욕장이름:"+staNm);
 			BeachDTO bdto=(BeachDTO)session.getAttribute(staNm);
-			mav.addObject("loc", " 위치보기");
+			
+			if(bdto!=null) {
+				mav.addObject("loc", " 위치보기");
+			}else {
+				mav.addObject("loc", "");
+			}
 			mav.addObject("bdto", bdto);
 			mav.setViewName("beachMapPresent");
 
@@ -100,40 +105,28 @@ public class BeachController {
 		           String staNmC=map.get("staNm");
 		           System.out.println("비교결과:"+!staNmC.equals(staNm));
 		           if(temp==0||!staNmC.equals(staNm)) {
-	                  System.out.println("시도명:"+getTagValue("sidoNm", eElement));
-	                  System.out.println("구군명:"+getTagValue("gugunNm", eElement));
-	                  System.out.println("정점명:"+getTagValue("staNm", eElement));
-	                  System.out.println("조사차수:"+getTagValue("resNum", eElement));
-	                  System.out.println("조사지점:"+getTagValue("resLoc", eElement));
-	                  System.out.println("대장균:"+getTagValue("res1", eElement));
-	                  System.out.println("장구균:"+getTagValue("res2", eElement));
-	                  System.out.println("적합여부:"+getTagValue("resYn", eElement));
-	                  System.out.println("검사년도:"+getTagValue("resYear", eElement));
-	                  System.out.println("검사일자:"+getTagValue("resDate", eElement));
-	                  System.out.println("검사종류:"+getTagValue("resLocDetail", eElement));
-	                  System.out.println("위도:"+getTagValue("lat", eElement));
-	                  System.out.println("경도:"+getTagValue("lon", eElement));
-	                  
+	           
+	               String res1=getTagValue("res1", eElement);
+	               String res2=getTagValue("res2", eElement);
+	               res1=res1.replace("&lt;", " < ");
+	               res2=res2.replace("&lt;", " < ");
 	              	BeachDTO bdto=new BeachDTO();
 	              bdto.setSidoNm(getTagValue("sidoNm", eElement));
                   bdto.setGugunNm(getTagValue("gugunNm", eElement));
                   bdto.setStaNm(getTagValue("staNm", eElement));
                   bdto.setResNum(getTagValue("resNum", eElement));
                   bdto.setResLoc(getTagValue("resLoc", eElement));
-                  bdto.setRes1(getTagValue("res1", eElement));
-                  bdto.setRes2(getTagValue("res2", eElement));
+                  bdto.setRes1(res1);
+                  bdto.setRes2(res2);
                   bdto.setResYn(getTagValue("resYn", eElement));
                   bdto.setResYear(getTagValue("resYear", eElement));
                   bdto.setLat(getTagValue("lat", eElement));
                   bdto.setLon(getTagValue("lon", eElement));
-                  System.out.println("담은 beachdto 값"+bdto);
                   list.add(bdto);
                   session.setAttribute(staNm,bdto);	
 		           }
 		           
 						}
-						System.out.println("===================");					
-						System.out.println("for end");
 							
 					
 					}
@@ -142,7 +135,6 @@ public class BeachController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("list목록"+list);
 		return list;
 	}
 	

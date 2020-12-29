@@ -135,9 +135,7 @@
               <p>
                이미지 로고 클릭시 해당 기관 홈페이지로 이동합니다.
               </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
+              
             </div>
           </div>
           <div class="col-lg-8 d-flex align-items-stretch">
@@ -189,7 +187,7 @@ allowfullscreen></iframe>
 								
 							</ul>
 							
-							<c:forEach var="x" items="${list}" end="6">
+							<c:forEach var="x" items="${list}" end="4">
 							
 							<ul class="board">
 								

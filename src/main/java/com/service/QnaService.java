@@ -58,8 +58,8 @@ public class QnaService {
 		dao.reply(qDTO);
 	}
 	
-	public void write(QnaDTO dto) {
-		dao.write(dto);
+	public void write(QnaDTO qDTO) {
+		dao.write(qDTO);
 	}
 
 	public QnaDTO selectByNum(int num) {
@@ -74,8 +74,8 @@ public class QnaService {
 		
 	}
 
-	public void updateByNum(QnaDTO dto) {
-		dao.updateByNum(dto);
+	public void updateByNum(QnaDTO qDTO) {
+		dao.updateByNum(qDTO);
 		
 	}
 

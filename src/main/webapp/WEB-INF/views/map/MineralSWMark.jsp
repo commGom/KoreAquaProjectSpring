@@ -234,7 +234,7 @@ font-weight: 250;
 
     // 마커에 표시할 인포윈도우를 생성합니다 
     var infowindow = new kakao.maps.InfoWindow({
-        content: '<div style="padding:5px;"><a href="MSW?mnrlspNm='+markers.prevObject[i].약수터명+'" style="color:blue" target="_blank">'+markers.prevObject[i].약수터명+'</a> <a href="https://map.kakao.com/link/to/'+markers.prevObject[i].약수터명+','+markers.prevObject[i].위도+','+markers.prevObject[i].경도+'" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표시할 내용
+        content: '<div style="padding:5px;"><a href="MSW?mnrlspNm='+markers.prevObject[i].약수터명+'" style="color:blue">'+markers.prevObject[i].약수터명+'</a> <a href="https://map.kakao.com/link/to/'+markers.prevObject[i].약수터명+','+markers.prevObject[i].위도+','+markers.prevObject[i].경도+'" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표시할 내용
         removable : true
     });
 

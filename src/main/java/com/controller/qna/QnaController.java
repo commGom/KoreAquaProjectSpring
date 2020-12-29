@@ -77,21 +77,22 @@ public class QnaController {
 		String fileName = qDTO.getFileName();
 		int repRoot = qDTO.getRepRoot();
 		int repCount = service.repCount(repRoot); // 답글 개수
+		int repStep = qDTO.getRepStep(); // 0이면 원글, 1 이상이면 답글
 	
 		// 해당 경로의 파일 삭제
 		String filePath = "C:\\upload\\" + fileName ;
 		File uploadFile = new File(filePath);
 		uploadFile.delete();
 		
-		if(repCount == 1) { // 답글이 없을 경우 delete
-			service.deleteByNum(num);
-		} else { // 답글이 있을 경우 update
+		if(repCount != 1 && repStep == 0) { // 답글이 있는 원글인 경우 update
 			qDTO.setTitle("삭제된 게시글입니다.");
 			qDTO.setAuthor(" ");
 			qDTO.setEmail(" ");
 			qDTO.setContent(" ");
 			
 			service.updateByNum(qDTO);
+		} else { // 그 외의 경우 delete
+			service.deleteByNum(num);
 		}
 		return "redirect:/qna";
 	}

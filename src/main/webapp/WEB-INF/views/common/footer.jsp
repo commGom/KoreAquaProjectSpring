@@ -74,7 +74,7 @@ function sendLink(){
 $(document).ready(function(){
 $(".btemail").click(function(){
 	var useremail = $(".useremail").val();
-	
+	var x = "@";
 	var bool=true;
 	
 	if(bool){
@@ -85,15 +85,22 @@ $(".btemail").click(function(){
 			dataType:"text",
 			data:{"useremail":useremail},
 			success: function(result){
-				alert("구독 성공!");
+				if(result.search(x)>0 ){
+				
+				alert("구독 성공하였습니다.");
 				console.log(result);
-				bool=false;
+				bool=false;}
+				if (result.search(x)== -1){
+					alert("구독 실패하였습니다. 올바른 이메일을 작성해주세요. ");
+				}
 			},
 			error:function(xhr, status, error){
-				alert("구독 실패 Error: "+status + "error: "+ error);
+				alert("구독 실패하였습니다. 올바른 이메일을 작성해주세요. ");
+				
 			}
 		});//end ajax
 	}
+	
 });
 
 });
@@ -121,7 +128,7 @@ $(".btemail").click(function(){
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>자세한 정보가 궁금하다면?</h4>
+            <h4>Our service</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="index.jsp">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">수돗물 수질 조회</a></li>
@@ -145,10 +152,12 @@ $(".btemail").click(function(){
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
-            <p>수질에 대한 정보를 받아보고 싶다면 구독해주세요!</p>
+            <p>수질에 대한 정보를 이메일로 받아보고 싶다면 &emsp; &emsp; &emsp; &emsp;   구독을 눌러주세요!</p>
             <div class="newsletter-sub" >
-             <input type="email" name="useremail" id="useremail" class="useremail">           
-              <input type="button" name="btemail" class="btemail" id="btemail" value="Subscribe">                     
+            
+             <input type="email"  name="useremail" id="useremail" class="useremail">           
+              <input type="button" name="btemail" class="btemail" id="btemail" value="Subscribe">    
+                            
              </div>
           </div>
           
