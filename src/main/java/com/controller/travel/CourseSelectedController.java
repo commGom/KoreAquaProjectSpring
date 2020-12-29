@@ -27,6 +27,7 @@ public class CourseSelectedController  {
 		
 		
 		CoursePageDTO pDTO = service.Course_SelectedArea(Integer.parseInt(curPage), course);
+		System.out.println("curPage:"+curPage);
 		List<CourseDTO> list = pDTO.getList();
 		int perPage = pDTO.getPerPage();
 		int totalCount = pDTO.getTotalCount();

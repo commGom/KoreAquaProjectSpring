@@ -129,12 +129,13 @@
 					<c:if test="${5-curPage>0 }">
 						<c:set var="counter" value="${5-curPage+counter }"/>
 					</c:if>
-					<c:if test="${totalPage < 5 }"> 
+					<c:if test="${totalPage - curPage < 5}">
+						<c:set var="counter" value="${counter - 5 + totalPage - curPage }" />
+					</c:if>		
+					<c:if test="${totalPage < 5 }">  
 						<c:set var="counter" value="${counter - curPage + 4}"/>
 					</c:if>	
-					<c:if test="${totalPage - curPage < 5}">
-						<c:set var="counter" value="${counter - 4 + totalPage - curPage }" />
-					</c:if>										
+										 	
 					<c:if test="${ counter <= totalPage }"> 
 						<c:choose>
 						<c:when test="${ counter == curPage }">

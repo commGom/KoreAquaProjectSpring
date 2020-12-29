@@ -59,14 +59,13 @@ $(document).ready(function(){
 					<h2></h2>
 					<ol>
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li>물과 여행 정보</li>
-						<li>명소 따라</li>
+						<li><a href="<c:url value='Area' />">물과 여행 정보</a></li>
+						<li><a href="<c:url value='' />">명소 따라</a></li>
 					</ol>
 				</div>
 			</div> 
 		</section> 
-		<!-- End Breadcrumbs -->
-		 
+		<!-- End Breadcrumbs -->		 
 		<!-- inner-page -->
 	<section class="inner_page">  
 	<div class=sub_top> 

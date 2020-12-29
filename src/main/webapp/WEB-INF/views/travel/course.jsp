@@ -47,7 +47,7 @@
 					<h2></h2>
 					<ol>
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li><a href="<c:url value='' />">물과 여행 정보</a></li>
+						<li><a href="<c:url value='Course' />">물과 여행 정보</a></li>
 						<li><a href="<c:url value='' />">강 따라</a></li>
 					</ol> 
 				</div>  

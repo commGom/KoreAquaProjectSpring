@@ -111,9 +111,9 @@ $(".btemail").click(function(){
             <h3>KoreAqua</h3>
             <p>
               환경부에서 제공하는 정보를 기반으로   <br>
-              수질 정보 검색 서비스, 물과 관련된 여행정보와<br>
-              용어의 정확한 의미가 담긴 사전 <br>
-              서비스를 제공합니다.<br>
+              수질 정보 검색 서비스, 물과 관련된 여행정보와              
+              용어의 정확한 의미가 담긴 <br>
+               사전 서비스를 제공합니다.<br>
               <br>
               <strong>Github:</strong> https://github.com/velSeon/<br>&emsp;&emsp;&emsp;&nbsp;&nbsp;KoreAuaProjectSpring<br>
               <strong>Email:</strong> KoreAqua2020@gmail.com<br>
@@ -127,7 +127,7 @@ $(".btemail").click(function(){
               <li><i class="bx bx-chevron-right"></i> <a href="DaySearch.jsp">수돗물 수질 조회</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="MineralSWMark.jsjp">약수터 수질 조회</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="beachMapPresent.jsp">약수터 수질 조회</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="TravelServlet">물과 여행 정보</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Course">물과 여행 정보</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="${pageContext.request.contextPath}/qna">Q & A</a></li>
             </ul>
           </div>
@@ -141,7 +141,7 @@ $(".btemail").click(function(){
               <li><i class="bx bx-chevron-right"></i> <a href="https://www.kwwa.or.kr/" target="_blank">한국상하수도협회</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="http://water.nier.go.kr/" target="_blank">물환경정보시스템</a></li>
             </ul>
-          </div>
+          </div> 
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>

@@ -35,7 +35,7 @@
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
 <!-- Template Body CSS File -->
-<link href="css/diction.css" rel="stylesheet">
+<link href="css/diction.css" rel="stylesheet"> 
 </head>
 
 <body>
@@ -44,14 +44,14 @@
 		<section class="breadcrumbs" id="Breadcrumbs">
 			<div class="container">
 				<div class="d-flex justify-content-between align-items-center">
-					<ol>
+					<ol class="page_link">
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li><a href="<c:url value='' />">Inner Page</a></li>
+						<li><a href="<c:url value='Diction' />">백과사전</a></li>
 					</ol>
 				</div>
 			</div>
 		</section> <!-- ======= End Breadcrumbs ======= -->
-		<!-- ======= MainPage ======= -->
+		<!-- ======= MainPage ======= --> 
 		<section class="inner-page">			
 				<div class="container" style="text-align: center; font-size: 22px;">
 					[ 검색할 단어를 입력하세요 ]</div>
@@ -144,7 +144,7 @@
 							<c:if test="${ counter <= totalPage }">
 								<c:choose>
 									<c:when test="${ counter == curPage }">
-										<a href="Diction?curPage=${ curPage - 10}">[${counter}]</a>
+										<a class="curPage" href="Diction?curPage=${ curPage - 10}">[${counter}]</a>
 									</c:when>
 									<c:when test="${ counter != curPage }">
 										<a href="Diction?curPage=${counter}">[${counter}]</a>

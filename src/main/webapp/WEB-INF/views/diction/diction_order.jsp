@@ -45,7 +45,7 @@
 				<div class="d-flex justify-content-between align-items-center">
 				<ol>
 					<li><a href="<c:url value='/' />">Home</a></li>
-					<li><a href="<c:url value='' />">백과사전</a></li>
+					<li><a href="<c:url value='Diction' />">백과사전</a></li>
 				</ol>
 			</div>
 			</div>
@@ -141,7 +141,7 @@
 								<c:if test="${ counter <= totalPage }">
 									<c:choose>
 										<c:when test="${ counter == curPage }">
-											<a href="Diction_Order?initial=${initial}&curPage=${counter }">[${counter }]</a>
+											<a class="curPage" href="Diction_Order?initial=${initial}&curPage=${counter }">[${counter }]</a>
 										</c:when>
 										<c:when test="${ counter != curPage }">
 											<a href="Diction_Order?initial=${initial}&curPage=${counter }">[${counter }]</a>
