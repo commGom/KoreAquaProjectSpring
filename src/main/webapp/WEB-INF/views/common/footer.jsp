@@ -11,7 +11,7 @@
 <meta property="og:image"         content="https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?cs=srgb&dl=pexels-lisa-fotios-1346155.jpg&fm=jpg" />
 
 <title>Insert title here</title>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 <script  src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type='text/javascript'>
 //페이스북 링크 전달 (!!! 고정아이피 사용이 필요해, 현재는 작동X. 추후 호스팅 후 변경 예정!!!)

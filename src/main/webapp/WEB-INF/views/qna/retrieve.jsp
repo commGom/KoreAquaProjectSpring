@@ -22,9 +22,9 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <title>Q & A - 글 상세보기</title>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
-<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script type="text/javascript">
 
 	$(function() {
