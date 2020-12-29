@@ -103,14 +103,14 @@
          
           <li><a href="<c:url value='/DaySearch' />">수질 조회</a>
             <ul>
-              <br><li><a href="<c:url value='/DaySearch' />">일별 수질 조회</a></li>
+              <br> <li><a href="<c:url value='/DaySearch' />">일별 수질 조회</a></li>
               <li><a href="<c:url value='/WeekSearch' />">주별 수질 조회</a></li>
               <li><a href="<c:url value='/MonthSearch' />">월별 수질 조회</a></li>
             </ul>
             
             <ul>
             <br><li><a href="<c:url value='/MineralSWMark' />">약수터 수질 조회</a></li>
-            <li><a href="<c:url value='/MineralSWMark' />">해수욕장 수질 조회</a></li>
+            <li><a href="<c:url value='/beachMapPresent' />">해수욕장 수질 조회</a></li>
             </ul>            
           </li>          
         </ul>

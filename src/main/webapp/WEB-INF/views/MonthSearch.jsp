@@ -109,7 +109,7 @@
             
             <ul>
             <br><li><a href="<c:url value='/MineralSWMark' />">약수터 수질 조회</a></li>
-            <li><a href="<c:url value='/MineralSWMark' />">해수욕장 수질 조회</a></li>
+            <li><a href="<c:url value='/beachMapPresent' />">해수욕장 수질 조회</a></li>
             </ul>            
           </li>          
         </ul>
