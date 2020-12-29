@@ -33,7 +33,11 @@
 				event.preventDefault();
 				alert("작성자명을 입력해 주세요.");
 				$("#author").focus();
-				
+			
+			} else if(!email){
+				event.preventDefault();
+				alert("이메일을 입력해 주세요.");
+				$("#email").focus();
 				
 			} else if($("#passwd").val().length != 4){
 				event.preventDefault();
@@ -44,15 +48,8 @@
 				event.preventDefault();
 				alert("내용을 입력해 주세요.");
 				$("#content").focus();
-			}
-			
-			// 이메일 입력 여부, 형식 체크
-			if(!email){
-				event.preventDefault();
-				alert("이메일을 입력해 주세요.");
-				$("#email").focus();
 			} else {
-				if(!checkEmail(email)){
+				if(!checkEmail(email)){ // 이메일 형식 체크
 					event.preventDefault();
 					alert("이메일 형식이 잘못되었습니다.");
 					$("#email").focus();
