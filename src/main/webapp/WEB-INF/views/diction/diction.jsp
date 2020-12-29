@@ -47,7 +47,7 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<ol>
 						<li><a href="<c:url value='/' />">Home</a></li>
-						<li><a href="<c:url value='' />">Inner Page</a></li>
+						<li><a href="<c:url value='' />">백과사전</a></li>
 					</ol>
 				</div>
 			</div>
