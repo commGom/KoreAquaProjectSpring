@@ -163,7 +163,7 @@ font-weight: 250;
 			<li id="boardD"><c:out value="${bdto.res2}"/></li>
 			<li id="boardD"><c:out value="${bdto.resYn}"/></li>
 			<li id="boardD"><c:out value="${bdto.resYear}"/></li>
-			<li id="boardD"><a href="https://map.kakao.com/link/to/<c:out value="${bdto.staNm}"/>,<c:out value="${bdto.lat}"/>,<c:out value="${bdto.lon}"/>" style="color:blue"><c:out value="${loc}"/></a></li>
+			<li id="boardD"><a href="https://map.kakao.com/link/to/<c:out value="${bdto.staNm}"/>,<c:out value="${bdto.lat}"/>,<c:out value="${bdto.lon}"/>" style="color:blue" target="_blank"><c:out value="${loc}"/></a></li>
 			</ul>	
 			</nav>
 		</td>
