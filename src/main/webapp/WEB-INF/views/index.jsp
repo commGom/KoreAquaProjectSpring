@@ -15,6 +15,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>KoreAqua</title>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+  
   <style type="text/css">
   
   #qnatest3{

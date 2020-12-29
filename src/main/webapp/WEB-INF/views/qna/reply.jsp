@@ -51,6 +51,7 @@
 <link href="${path}/assets/css/style.css" rel="stylesheet">
 <link href="${path}/css/subscribe_css.css" rel="stylesheet" >
 <link rel="stylesheet" type="text/css" href="${path}/css/qna.css">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </head>
 <body>
