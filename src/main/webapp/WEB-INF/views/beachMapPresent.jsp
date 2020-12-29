@@ -81,10 +81,10 @@
       <div class="container ">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>약수터 수질 조회</h2>
+          <h2>해수욕장 수질 조회</h2>
           <ol>
             <li><a href="<c:url value='/' />">Home</a></li>
-            <li>약수터 수질 조회</li>
+            <li>해수욕장 수질 조회</li>
           </ol>
         </div>
 
@@ -101,7 +101,7 @@
       <nav class="sdb_holder">
         <ul>
          
-          <li><a href="<c:url value='/DaySearch' />">수질 조회</a>
+          <li> <a href="<c:url value='/DaySearch' />">수질 조회</a>
             <ul>
               <br><li><a href="<c:url value='/DaySearch' />">일별 수질 조회</a></li>
               <li><a href="<c:url value='/WeekSearch' />">주별 수질 조회</a></li>
@@ -110,7 +110,7 @@
             
             <ul>
             <br><li><a href="<c:url value='/MineralSWMark' />">약수터 수질 조회</a></li>
-            <li><a href="<c:url value='/MineralSWMark' />">해수욕장 수질 조회</a></li>
+            <li><a href="<c:url value='/beachMapPresent' />">해수욕장 수질 조회</a></li>
             </ul>            
           </li>          
         </ul>
