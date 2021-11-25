@@ -94,7 +94,7 @@
     - IDE : eclipse, sts
     - Framework : Springboot 2.1.7
     - Java JDK ver. : 1.8
-    - ORM : Mybatis(3.5.5), Mybatis-spring(2.0.5), JDBC, DataSource:dbcp2
+    - Mybatis(3.5.5), Mybatis-spring(2.0.5), JDBC, DataSource:dbcp2
 - JAVA
     - JSP, Servelt, JDBC, JavaApplication, Spring, EL & JSTL
 - WEB Front
